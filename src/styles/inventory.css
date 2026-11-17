@@ -1,0 +1,314 @@
+.workspace-tabs {
+  display: flex;
+  flex-shrink: 0;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  border-bottom: 2px solid #abcac7;
+}
+.workspace-tabs button {
+  min-height: 36px;
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border-radius: 8px 8px 0 0;
+  border-color: transparent;
+  border-bottom: 3px solid transparent;
+  background: #e7efef;
+  color: #5c7175;
+}
+.workspace-tabs button[aria-selected='false']:enabled:hover {
+  background: #d8e9e7;
+  color: #285e59;
+}
+.workspace-tabs button[aria-selected='true'] {
+  background: #fff;
+  color: #125d55;
+  border-color: #abcac7;
+  border-bottom-color: #187a6e;
+}
+.app-workspace :is(button, input, select, summary),
+.inventory-workspace :is(button, input, select, summary) {
+  scroll-margin-top: 72px;
+}
+.comparison-mode {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 0;
+  gap: 6px;
+  margin: 0 0 0 auto;
+}
+@media (max-width: 480px) {
+  .workspace-tabs {
+    margin-left: auto;
+  }
+  .app-workspace :is(button, input, select, summary),
+  .inventory-workspace :is(button, input, select, summary) {
+    scroll-margin-top: 110px;
+  }
+}
+.cards-heading h2 {
+  flex-shrink: 0;
+}
+.comparison-mode button {
+  min-height: 38px;
+  padding: 6px 10px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  white-space: nowrap;
+  background: #edf2f5;
+  border-color: #c7d3db;
+  color: #526475;
+}
+.comparison-mode button[aria-pressed='false']:enabled:hover {
+  background: #dce6ec;
+  border-color: #9cafbc;
+}
+.comparison-mode button[aria-pressed='true'] {
+  background: #d6ece6;
+  border-color: #8accc0;
+  color: #245c55;
+}
+.table-scroll [data-column='owned-limit'] {
+  width: 64px;
+  white-space: nowrap;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+@media (min-width: 1100px) {
+  .has-owned-limit th[data-column='owned-limit'] {
+    width: 5%;
+  }
+  .has-owned-limit th[data-column='name'] {
+    width: 25%;
+  }
+  .has-owned-limit th[data-column='rarity'] {
+    width: 7%;
+  }
+  .has-owned-limit th[data-column='level'] {
+    width: 6%;
+  }
+  .has-owned-limit th[data-column='plan'] {
+    width: 8%;
+  }
+}
+.inventory-workspace {
+  padding-top: 20px;
+}
+.inventory-file-actions,
+.inventory-bulk {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin: 14px 0;
+}
+.inventory-bulk-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.inventory-bulk-actions button,
+.inventory-file-actions button {
+  min-height: 34px;
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+.inventory-heading {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 6px 12px;
+}
+.inventory-heading > span {
+  justify-self: start;
+}
+.inventory-heading .inventory-file-actions {
+  flex-wrap: nowrap;
+  gap: 8px;
+  margin: 0;
+}
+.inventory-file-actions button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.inventory-file-icon {
+  flex-shrink: 0;
+}
+@media (max-width: 380px) {
+  .inventory-heading .inventory-file-actions {
+    gap: 6px;
+  }
+  .inventory-file-actions button {
+    gap: 4px;
+    padding-inline: 4px;
+    font-size: 0.75rem;
+  }
+  .inventory-file-icon {
+    width: 14px;
+    height: 14px;
+  }
+}
+.inventory-error {
+  color: #9c3030;
+  overflow-wrap: anywhere;
+}
+.inventory-import-preview {
+  border: 1px solid #8cbcaf;
+  border-radius: 12px;
+  background: #f1faf6;
+  padding: 16px;
+  margin: 16px 0;
+}
+.inventory-import-preview h3 {
+  margin-top: 0;
+}
+.inventory-import-preview label {
+  display: block;
+  margin: 8px 0;
+}
+.inventory-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+}
+.inventory-card {
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid #d5dfe6;
+  border-radius: 12px;
+  background: #fff;
+}
+.inventory-card.is-owned {
+  border-color: #91bfb2;
+  background: #f5faf8;
+}
+.inventory-card-name {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  width: 100%;
+  padding: 0;
+  color: #25485d;
+}
+.inventory-card-name img {
+  width: 72px;
+  height: 42px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.inventory-card-summary {
+  display: grid;
+  min-width: 0;
+  gap: 4px;
+}
+.inventory-card-title {
+  overflow-wrap: anywhere;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.inventory-card-controls {
+  margin-top: 8px;
+}
+.inventory-card-badges {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.inventory-card-badges .status-badge {
+  margin-right: 0;
+}
+.ownership-select {
+  /* 未所持と所持の間だけ空け、選択背景はその間隔も含めて移動する。 */
+  grid-template-columns: minmax(0, 1fr) 8px repeat(5, minmax(0, 1fr));
+  width: 300px;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  box-shadow: none;
+}
+.ownership-select::after {
+  content: '';
+  position: absolute;
+  z-index: -2;
+  inset: 0 0 0 calc((100% - 8px) / 6 + 8px);
+  border: 1px solid #c5d7eb;
+  border-radius: 8px;
+  background: #f0f5fc;
+  pointer-events: none;
+}
+.ownership-select::before {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: calc((100% - 8px) / 6);
+  border-color: #92b9e3;
+  background: #dce9f8;
+  transform: translateX(calc(var(--selected-limit) * 100% + var(--ownership-offset)));
+}
+.ownership-select button {
+  font-size: 0.8rem;
+  white-space: nowrap;
+  color: #566e88;
+}
+.ownership-select button:first-child {
+  border: 1px solid #c5d7eb;
+}
+.ownership-select button:nth-child(2) {
+  grid-column: 3;
+}
+.ownership-select button:hover,
+.ownership-select button[aria-pressed='true'] {
+  color: #234f7e;
+  text-shadow: none;
+  box-shadow: none;
+}
+.ownership-select button:focus-visible {
+  outline-color: #497fb9;
+}
+.inventory-card-controls .ownership-select {
+  width: 100%;
+}
+.detail-inventory-control {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 12px 0;
+}
+@media (max-width: 600px) {
+  .inventory-heading {
+    grid-template-columns: 1fr auto;
+  }
+  .inventory-heading > span {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+  .inventory-heading .inventory-file-actions {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .cards-heading {
+    margin-right: 12px;
+  }
+  .workspace-tabs button {
+    padding-inline: 8px;
+    font-size: 0.75rem;
+  }
+  .inventory-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .inventory-bulk {
+    gap: 8px;
+  }
+}

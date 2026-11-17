@@ -1,0 +1,33 @@
+:root {
+  /* 一覧が短いモードでもスクロールバーの領域を残し、画面全体を横へ動かさない。 */
+  scrollbar-gutter: stable;
+  font-family: system-ui, sans-serif;
+  color: #26394a;
+  background: #f4f7fa;
+  line-height: 1.7;
+  --ui-motion: 280ms;
+  --ui-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: #f3f7f7;
+}
+main {
+  max-width: 1200px;
+  margin: auto;
+  padding: 16px 24px 40px;
+}
+.app-workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 1200px;
+  margin-inline: auto;
+}
+.app-workspace > main {
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+}

@@ -1,0 +1,2098 @@
+{
+  "cards": {
+    "SP_R_0014": {
+      "name": "お仕え前の準備運動",
+      "card": {
+        "path": "card-details/r/SP_R_0014.webp"
+      }
+    },
+    "SP_R_0013": {
+      "name": "謹厳実直",
+      "card": {
+        "path": "card-details/r/SP_R_0013.webp"
+      }
+    },
+    "SP_R_0012": {
+      "name": "念入りにストレッチ",
+      "card": {
+        "path": "card-details/r/SP_R_0012.webp"
+      }
+    },
+    "SP_R_0011": {
+      "name": "全力、その後",
+      "card": {
+        "path": "card-details/r/SP_R_0011.webp"
+      }
+    },
+    "SP_R_0010": {
+      "name": "枝毛をくるり",
+      "card": {
+        "path": "card-details/r/SP_R_0010.webp"
+      }
+    },
+    "SP_R_0009": {
+      "name": "王子様のひと呼吸",
+      "card": {
+        "path": "card-details/r/SP_R_0009.webp"
+      }
+    },
+    "SP_R_0008": {
+      "name": "ひたむき居残りレッスン",
+      "card": {
+        "path": "card-details/r/SP_R_0008.webp"
+      }
+    },
+    "SP_R_0007": {
+      "name": "憧れを目指して",
+      "card": {
+        "path": "card-details/r/SP_R_0007.webp"
+      }
+    },
+    "SP_R_0006": {
+      "name": "スイッチON！",
+      "card": {
+        "path": "card-details/r/SP_R_0006.webp"
+      }
+    },
+    "SP_R_0005": {
+      "name": "いめーじとれーにんぐ",
+      "card": {
+        "path": "card-details/r/SP_R_0005.webp"
+      }
+    },
+    "SP_R_0004": {
+      "name": "完全無欠のプランニング",
+      "card": {
+        "path": "card-details/r/SP_R_0004.webp"
+      }
+    },
+    "SP_R_0003": {
+      "name": "わたしのペースで",
+      "card": {
+        "path": "card-details/r/SP_R_0003.webp"
+      }
+    },
+    "SP_R_0002": {
+      "name": "お姉ちゃん直伝メニュー",
+      "card": {
+        "path": "card-details/r/SP_R_0002.webp"
+      }
+    },
+    "SP_R_0001": {
+      "name": "頼れる先輩お姉さん",
+      "card": {
+        "path": "card-details/r/SP_R_0001.webp"
+      }
+    },
+    "SP_SR_0084": {
+      "name": "どたばた、おそうじ",
+      "card": {
+        "path": "card-details/sr/SP_SR_0084.webp"
+      },
+      "produce_item": {
+        "name": "お掃除の成果",
+        "path": "produce-items/sr/SP_SR_0084.png"
+      }
+    },
+    "SP_SR_0083": {
+      "name": "威風堂々・お昼寝タイム",
+      "card": {
+        "path": "card-details/sr/SP_SR_0083.webp"
+      },
+      "produce_item": {
+        "name": "ねぎらいコーヒー",
+        "path": "produce-items/sr/SP_SR_0083.png"
+      }
+    },
+    "SP_SR_0082": {
+      "name": "ふたりで衣装作り",
+      "card": {
+        "path": "card-details/sr/SP_SR_0082.webp"
+      },
+      "produce_item": {
+        "name": "お手製ぴったり衣装",
+        "path": "produce-items/sr/SP_SR_0082.png"
+      }
+    },
+    "SP_SR_0081": {
+      "name": "冬のお姫様と王子様",
+      "card": {
+        "path": "card-details/sr/SP_SR_0081.webp"
+      },
+      "produce_item": {
+        "name": "王子様隠しかぼちゃ",
+        "path": "produce-items/sr/SP_SR_0081.png"
+      }
+    },
+    "SP_SR_0080": {
+      "name": "激辛！　初星カレー！！",
+      "card": {
+        "path": "card-details/sr/SP_SR_0080.webp"
+      },
+      "produce_item": {
+        "name": "限界への挑戦券",
+        "path": "produce-items/sr/SP_SR_0080.png"
+      }
+    },
+    "SP_SR_0079": {
+      "name": "おやすみのふたり",
+      "card": {
+        "path": "card-details/sr/SP_SR_0079.webp"
+      },
+      "skill_card": {
+        "name": "のんびりすやすや",
+        "path": "skill-cards/sr/SP_SR_0079.png"
+      }
+    },
+    "SP_SR_0078": {
+      "name": "こんにゃくなきもだめし",
+      "card": {
+        "path": "card-details/sr/SP_SR_0078.webp"
+      },
+      "produce_item": {
+        "name": "ほっぺたぺたり",
+        "path": "produce-items/sr/SP_SR_0078.png"
+      }
+    },
+    "SP_SR_0077": {
+      "name": "奇遇な必然",
+      "card": {
+        "path": "card-details/sr/SP_SR_0077.webp"
+      },
+      "produce_item": {
+        "name": "きっちりファン装備",
+        "path": "produce-items/sr/SP_SR_0077.png"
+      }
+    },
+    "SP_SR_0076": {
+      "name": "ずっしりスイカでりしゃす",
+      "card": {
+        "path": "card-details/sr/SP_SR_0076.webp"
+      },
+      "produce_item": {
+        "name": "ドキドキ目隠し",
+        "path": "produce-items/sr/SP_SR_0076.png"
+      }
+    },
+    "SP_SR_0075": {
+      "name": "ゆるるんあくび顔",
+      "card": {
+        "path": "card-details/sr/SP_SR_0075.webp"
+      },
+      "produce_item": {
+        "name": "居眠り注意！",
+        "path": "produce-items/sr/SP_SR_0075.png"
+      }
+    },
+    "SP_SR_0074": {
+      "name": "ゆずれないもの",
+      "card": {
+        "path": "card-details/sr/SP_SR_0074.webp"
+      },
+      "produce_item": {
+        "name": "懐かしパーティー論争",
+        "path": "produce-items/sr/SP_SR_0074.png"
+      }
+    },
+    "SP_SR_0073": {
+      "name": "のんびり美味しいひととき",
+      "card": {
+        "path": "card-details/sr/SP_SR_0073.webp"
+      },
+      "produce_item": {
+        "name": "のんびりアフタヌーン",
+        "path": "produce-items/sr/SP_SR_0073.png"
+      }
+    },
+    "SP_SR_0072": {
+      "name": "パクパクもぐもぐ",
+      "card": {
+        "path": "card-details/sr/SP_SR_0072.webp"
+      },
+      "produce_item": {
+        "name": "もぐもぐ定食",
+        "path": "produce-items/sr/SP_SR_0072.png"
+      }
+    },
+    "SP_SR_0071": {
+      "name": "ひっぱり じゅーなん",
+      "card": {
+        "path": "card-details/sr/SP_SR_0071.webp"
+      },
+      "produce_item": {
+        "name": "切磋琢磨のタオル",
+        "path": "produce-items/sr/SP_SR_0071.jpg"
+      }
+    },
+    "SP_SR_0070": {
+      "name": "騎士とおてんば姫",
+      "card": {
+        "path": "card-details/sr/SP_SR_0070.webp"
+      },
+      "produce_item": {
+        "name": "演技のたしなみ",
+        "path": "produce-items/sr/SP_SR_0070.png"
+      }
+    },
+    "SP_SR_0069": {
+      "name": "お近づきの印☆",
+      "card": {
+        "path": "card-details/sr/SP_SR_0069.webp"
+      },
+      "produce_item": {
+        "name": "ほくほくハンバーガー",
+        "path": "produce-items/sr/SP_SR_0069.png"
+      }
+    },
+    "SP_SR_0068": {
+      "name": "洗濯物のバランスタワー",
+      "card": {
+        "path": "card-details/sr/SP_SR_0068.webp"
+      },
+      "produce_item": {
+        "name": "お洗濯の必需品",
+        "path": "produce-items/sr/SP_SR_0068.png"
+      }
+    },
+    "SP_SR_0067": {
+      "name": "一番星と王子様",
+      "card": {
+        "path": "card-details/sr/SP_SR_0067.webp"
+      },
+      "produce_item": {
+        "name": "幸せの詰め合わせ",
+        "path": "produce-items/sr/SP_SR_0067.png"
+      }
+    },
+    "SP_SR_0066": {
+      "name": "仲良しの証",
+      "card": {
+        "path": "card-details/sr/SP_SR_0066.webp"
+      },
+      "produce_item": {
+        "name": "はじめてのけんか？",
+        "path": "produce-items/sr/SP_SR_0066.png"
+      }
+    },
+    "SP_SR_0065": {
+      "name": "おひさま笑顔、満開ふたつ",
+      "card": {
+        "path": "card-details/sr/SP_SR_0065.webp"
+      },
+      "produce_item": {
+        "name": "そっくりワンワン",
+        "path": "produce-items/sr/SP_SR_0065.png"
+      }
+    },
+    "SP_SR_0064": {
+      "name": "ぐつぐつ、いいにおい♪",
+      "card": {
+        "path": "card-details/sr/SP_SR_0064.webp"
+      },
+      "skill_card": {
+        "name": "味見はいかが",
+        "path": "skill-cards/sr/SP_SR_0064.png"
+      }
+    },
+    "SP_SR_0063": {
+      "name": "佑芽ソリレース、疾走！",
+      "card": {
+        "path": "card-details/sr/SP_SR_0063.webp"
+      },
+      "produce_item": {
+        "name": "ゲレンデを駆ける赤",
+        "path": "produce-items/sr/SP_SR_0063.png"
+      }
+    },
+    "SP_SR_0062": {
+      "name": "ピコピコでポーン",
+      "card": {
+        "path": "card-details/sr/SP_SR_0062.webp"
+      },
+      "produce_item": {
+        "name": "たたいてかぶって",
+        "path": "produce-items/sr/SP_SR_0062.png"
+      }
+    },
+    "SP_SR_0061": {
+      "name": "バディ？",
+      "card": {
+        "path": "card-details/sr/SP_SR_0061.webp"
+      },
+      "produce_item": {
+        "name": "お直し刺繍セット",
+        "path": "produce-items/sr/SP_SR_0061.png"
+      }
+    },
+    "SP_SR_0060": {
+      "name": "眠れる森の王子様",
+      "card": {
+        "path": "card-details/sr/SP_SR_0060.webp"
+      },
+      "produce_item": {
+        "name": "おひるねブランケット",
+        "path": "produce-items/sr/SP_SR_0060.jpg"
+      }
+    },
+    "SP_SR_0059": {
+      "name": "ごきげんような挨拶♪",
+      "card": {
+        "path": "card-details/sr/SP_SR_0059.webp"
+      },
+      "produce_item": {
+        "name": "ごきげんようレッスン",
+        "path": "produce-items/sr/SP_SR_0059.jpg"
+      }
+    },
+    "SP_SR_0058": {
+      "name": "あったか足ツボマッサージ",
+      "card": {
+        "path": "card-details/sr/SP_SR_0058.webp"
+      },
+      "produce_item": {
+        "name": "激痛のちぽかぽか",
+        "path": "produce-items/sr/SP_SR_0058.jpg"
+      }
+    },
+    "SP_SR_0057": {
+      "name": "はっぴぃはろうぃ～～ん！",
+      "card": {
+        "path": "card-details/sr/SP_SR_0057.webp"
+      },
+      "produce_item": {
+        "name": "びっくり仮装グッズ",
+        "path": "produce-items/sr/SP_SR_0057.jpeg"
+      }
+    },
+    "SP_SR_0056": {
+      "name": "腹筋で背筋で体幹キープ！",
+      "card": {
+        "path": "card-details/sr/SP_SR_0056.webp"
+      },
+      "produce_item": {
+        "name": "メリハリストレッチ",
+        "path": "produce-items/sr/SP_SR_0056.jpg"
+      }
+    },
+    "SP_SR_0055": {
+      "name": "トゲトゲ注意報",
+      "card": {
+        "path": "card-details/sr/SP_SR_0055.webp"
+      },
+      "produce_item": {
+        "name": "かごいっぱいの成果",
+        "path": "produce-items/sr/SP_SR_0055.jpg"
+      }
+    },
+    "SP_SR_0054": {
+      "name": "師弟の修行",
+      "card": {
+        "path": "card-details/sr/SP_SR_0054.webp"
+      },
+      "produce_item": {
+        "name": "落ち葉つかみの型",
+        "path": "produce-items/sr/SP_SR_0054.jpg"
+      }
+    },
+    "SP_SR_0053": {
+      "name": "ちべたなひととき",
+      "card": {
+        "path": "card-details/sr/SP_SR_0053.webp"
+      },
+      "produce_item": {
+        "name": "ふっかつのアイス",
+        "path": "produce-items/sr/SP_SR_0053.png"
+      }
+    },
+    "SP_SR_0052": {
+      "name": "今日は見学なんです",
+      "card": {
+        "path": "card-details/sr/SP_SR_0052.webp"
+      },
+      "produce_item": {
+        "name": "おさぼりタオル",
+        "path": "produce-items/sr/SP_SR_0052.png"
+      }
+    },
+    "SP_SR_0051": {
+      "name": "スパルタ＆スパイス",
+      "card": {
+        "path": "card-details/sr/SP_SR_0051.webp"
+      },
+      "produce_item": {
+        "name": "ビシッバシッ竹刀",
+        "path": "produce-items/sr/SP_SR_0051.png"
+      }
+    },
+    "SP_SR_0050": {
+      "name": "むず×2ふぁっしょんしょー",
+      "card": {
+        "path": "card-details/sr/SP_SR_0050.webp"
+      },
+      "produce_item": {
+        "name": "お似合いネクタイ",
+        "path": "produce-items/sr/SP_SR_0050.png"
+      }
+    },
+    "SP_SR_0049": {
+      "name": "ばたんきゅー",
+      "card": {
+        "path": "card-details/sr/SP_SR_0049.webp"
+      },
+      "produce_item": {
+        "name": "へとへとできゅー",
+        "path": "produce-items/sr/SP_SR_0049.png"
+      }
+    },
+    "SP_SR_0048": {
+      "name": "あん・どぅ・とろわっ！",
+      "card": {
+        "path": "card-details/sr/SP_SR_0048.webp"
+      },
+      "produce_item": {
+        "name": "のびのびバンド",
+        "path": "produce-items/sr/SP_SR_0048.png"
+      }
+    },
+    "SP_SR_0047": {
+      "name": "主菓子、甘い、薄茶、渋み",
+      "card": {
+        "path": "card-details/sr/SP_SR_0047.webp"
+      },
+      "produce_item": {
+        "name": "おもてなしの気持ち",
+        "path": "produce-items/sr/SP_SR_0047.png"
+      }
+    },
+    "SP_SR_0046": {
+      "name": "2名様、ご案内～♪",
+      "card": {
+        "path": "card-details/sr/SP_SR_0046.webp"
+      },
+      "produce_item": {
+        "name": "お残しにんじん",
+        "path": "produce-items/sr/SP_SR_0046.png"
+      }
+    },
+    "SP_SR_0045": {
+      "name": "屈辱の2位",
+      "card": {
+        "path": "card-details/sr/SP_SR_0045.webp"
+      },
+      "produce_item": {
+        "name": "噛み締めたタオル",
+        "path": "produce-items/sr/SP_SR_0045.png"
+      }
+    },
+    "SP_SR_0044": {
+      "name": "奥義、三重とび！",
+      "card": {
+        "path": "card-details/sr/SP_SR_0044.webp"
+      },
+      "produce_item": {
+        "name": "絆のなわとび",
+        "path": "produce-items/sr/SP_SR_0044.png"
+      }
+    },
+    "SP_SR_0043": {
+      "name": "ガールズ♡トーク",
+      "card": {
+        "path": "card-details/sr/SP_SR_0043.webp"
+      },
+      "produce_item": {
+        "name": "ギャルめいきんぐ！",
+        "path": "produce-items/sr/SP_SR_0043.png"
+      }
+    },
+    "SP_SR_0042": {
+      "name": "虫愛づる王子様",
+      "card": {
+        "path": "card-details/sr/SP_SR_0042.webp"
+      },
+      "skill_card": {
+        "name": "小さなお客さん",
+        "path": "skill-cards/sr/SP_SR_0042.png"
+      }
+    },
+    "SP_SR_0041": {
+      "name": "ピューとシューの二重奏",
+      "card": {
+        "path": "card-details/sr/SP_SR_0041.webp"
+      },
+      "skill_card": {
+        "name": "草笛ハーモニー",
+        "path": "skill-cards/sr/SP_SR_0041.png"
+      }
+    },
+    "SP_SR_0040": {
+      "name": "まごころを込めて",
+      "card": {
+        "path": "card-details/sr/SP_SR_0040.webp"
+      },
+      "skill_card": {
+        "name": "ディテールが肝心",
+        "path": "skill-cards/sr/SP_SR_0040.png"
+      }
+    },
+    "SP_SR_0039": {
+      "name": "SSCの爆誕",
+      "card": {
+        "path": "card-details/sr/SP_SR_0039.webp"
+      },
+      "skill_card": {
+        "name": "愛情レインボー",
+        "path": "skill-cards/sr/SP_SR_0039.png"
+      }
+    },
+    "SP_SR_0038": {
+      "name": "目指すはテッペン",
+      "card": {
+        "path": "card-details/sr/SP_SR_0038.webp"
+      },
+      "produce_item": {
+        "name": "トレーナーの優しさ",
+        "path": "produce-items/sr/SP_SR_0038.png"
+      }
+    },
+    "SP_SR_0037": {
+      "name": "まだまだのばしてー",
+      "card": {
+        "path": "card-details/sr/SP_SR_0037.webp"
+      },
+      "produce_item": {
+        "name": "体ほぐしローラー",
+        "path": "produce-items/sr/SP_SR_0037.png"
+      }
+    },
+    "SP_SR_0036": {
+      "name": "基礎＞応用",
+      "card": {
+        "path": "card-details/sr/SP_SR_0036.webp"
+      },
+      "produce_item": {
+        "name": "うるおいのどケア",
+        "path": "produce-items/sr/SP_SR_0036.png"
+      }
+    },
+    "SP_SR_0035": {
+      "name": "カロリー/2でハッピー×2",
+      "card": {
+        "path": "card-details/sr/SP_SR_0035.webp"
+      },
+      "produce_item": {
+        "name": "ほっこりはんぶんこ",
+        "path": "produce-items/sr/SP_SR_0035.png"
+      }
+    },
+    "SP_SR_0034": {
+      "name": "きゅる～んωポーズッ☆",
+      "card": {
+        "path": "card-details/sr/SP_SR_0034.webp"
+      },
+      "produce_item": {
+        "name": "カワイイのつくり方",
+        "path": "produce-items/sr/SP_SR_0034.png"
+      }
+    },
+    "SP_SR_0033": {
+      "name": "ディカプルエックスエル！",
+      "card": {
+        "path": "card-details/sr/SP_SR_0033.webp"
+      },
+      "produce_item": {
+        "name": "イケてるセーター",
+        "path": "produce-items/sr/SP_SR_0033.png"
+      }
+    },
+    "SP_SR_0032": {
+      "name": "サンマ、パタパタ",
+      "card": {
+        "path": "card-details/sr/SP_SR_0032.webp"
+      },
+      "skill_card": {
+        "name": "旬の味わい",
+        "path": "skill-cards/sr/SP_SR_0032.png"
+      }
+    },
+    "SP_SR_0031": {
+      "name": "バズっちゃお！",
+      "card": {
+        "path": "card-details/sr/SP_SR_0031.webp"
+      },
+      "skill_card": {
+        "name": "こうかい……？",
+        "path": "skill-cards/sr/SP_SR_0031.jpg"
+      }
+    },
+    "SP_SR_0030": {
+      "name": "トンボをつかまえて",
+      "card": {
+        "path": "card-details/sr/SP_SR_0030.webp"
+      },
+      "produce_item": {
+        "name": "小さい秋見つけた",
+        "path": "produce-items/sr/SP_SR_0030.jpg"
+      }
+    },
+    "SP_SR_0029": {
+      "name": "SSDのひみつ",
+      "card": {
+        "path": "card-details/sr/SP_SR_0029.webp"
+      },
+      "produce_item": {
+        "name": "ぜったいマル秘レシピ",
+        "path": "produce-items/sr/SP_SR_0029.jpg"
+      }
+    },
+    "SP_SR_0028": {
+      "name": "興味深い飲み物",
+      "card": {
+        "path": "card-details/sr/SP_SR_0028.webp"
+      },
+      "skill_card": {
+        "name": "気になる……",
+        "path": "skill-cards/sr/SP_SR_0028.jpg"
+      }
+    },
+    "SP_SR_0027": {
+      "name": "千奈の恩返し",
+      "card": {
+        "path": "card-details/sr/SP_SR_0027.webp"
+      },
+      "produce_item": {
+        "name": "お嬢様の恩返し",
+        "path": "produce-items/sr/SP_SR_0027.jpg"
+      }
+    },
+    "SP_SR_0026": {
+      "name": "ブレイクタイムは珈琲で",
+      "card": {
+        "path": "card-details/sr/SP_SR_0026.webp"
+      },
+      "produce_item": {
+        "name": "優しさミルクシュガー",
+        "path": "produce-items/sr/SP_SR_0026.jpg"
+      }
+    },
+    "SP_SR_0025": {
+      "name": "りっぱなすすき！",
+      "card": {
+        "path": "card-details/sr/SP_SR_0025.webp"
+      },
+      "produce_item": {
+        "name": "大きくてつやつや",
+        "path": "produce-items/sr/SP_SR_0025.jpg"
+      }
+    },
+    "SP_SR_0024": {
+      "name": "キュッと締めて",
+      "card": {
+        "path": "card-details/sr/SP_SR_0024.webp"
+      },
+      "produce_item": {
+        "name": "きっかけの帯",
+        "path": "produce-items/sr/SP_SR_0024.jpg"
+      }
+    },
+    "SP_SR_0023": {
+      "name": "ふわふわなお面？",
+      "card": {
+        "path": "card-details/sr/SP_SR_0023.webp"
+      },
+      "produce_item": {
+        "name": "ハンターの戦利品",
+        "path": "produce-items/sr/SP_SR_0023.png"
+      }
+    },
+    "SP_SR_0022": {
+      "name": "やさしさ、あったかい",
+      "card": {
+        "path": "card-details/sr/SP_SR_0022.webp"
+      },
+      "skill_card": {
+        "name": "切れた鼻緒が結んだ絆",
+        "path": "skill-cards/sr/SP_SR_0022.png"
+      }
+    },
+    "SP_SR_0021": {
+      "name": "第五種接近遭遇",
+      "card": {
+        "path": "card-details/sr/SP_SR_0021.webp"
+      },
+      "produce_item": {
+        "name": "ウチュウジンデアル",
+        "path": "produce-items/sr/SP_SR_0021.png"
+      }
+    },
+    "SP_SR_0020": {
+      "name": "海、楽しまなきゃ！",
+      "card": {
+        "path": "card-details/sr/SP_SR_0020.webp"
+      },
+      "produce_item": {
+        "name": "可愛い隠しバスタオル",
+        "path": "produce-items/sr/SP_SR_0020.png"
+      }
+    },
+    "SP_SR_0019": {
+      "name": "かちこちストレッチ",
+      "card": {
+        "path": "card-details/sr/SP_SR_0019.webp"
+      },
+      "produce_item": {
+        "name": "咲季オススメマット",
+        "path": "produce-items/sr/SP_SR_0019.png"
+      }
+    },
+    "SP_SR_0018": {
+      "name": "どりゃぎゃ",
+      "card": {
+        "path": "card-details/sr/SP_SR_0018.webp"
+      },
+      "produce_item": {
+        "name": "ダブルボトル",
+        "path": "produce-items/sr/SP_SR_0018.png"
+      }
+    },
+    "SP_SR_0017": {
+      "name": "パシャっとキメポ",
+      "card": {
+        "path": "card-details/sr/SP_SR_0017.webp"
+      },
+      "skill_card": {
+        "name": "キメ顔で自撮り",
+        "path": "skill-cards/sr/SP_SR_0017.png"
+      }
+    },
+    "SP_SR_0016": {
+      "name": "イヤホンはんぶんこ",
+      "card": {
+        "path": "card-details/sr/SP_SR_0016.webp"
+      },
+      "skill_card": {
+        "name": "なに聴いてるの？",
+        "path": "skill-cards/sr/SP_SR_0016.png"
+      }
+    },
+    "SP_SR_0015": {
+      "name": "体当たりのラブコール",
+      "card": {
+        "path": "card-details/sr/SP_SR_0015.webp"
+      },
+      "skill_card": {
+        "name": "お姉ちゃんだもの！",
+        "path": "skill-cards/sr/SP_SR_0015.png"
+      }
+    },
+    "SP_SR_0014": {
+      "name": "今はあえて、背を向けて",
+      "card": {
+        "path": "card-details/sr/SP_SR_0014.webp"
+      },
+      "produce_item": {
+        "name": "美鈴からの贈り物",
+        "path": "produce-items/sr/SP_SR_0014.png"
+      }
+    },
+    "SP_SR_0013": {
+      "name": "のらりくらりしっかり",
+      "card": {
+        "path": "card-details/sr/SP_SR_0013.webp"
+      },
+      "skill_card": {
+        "name": "おアツイ視線",
+        "path": "skill-cards/sr/SP_SR_0013.png"
+      }
+    },
+    "SP_SR_0012": {
+      "name": "愛無き暗記は難しい",
+      "card": {
+        "path": "card-details/sr/SP_SR_0012.webp"
+      },
+      "produce_item": {
+        "name": "打倒！墾田永年私財法",
+        "path": "produce-items/sr/SP_SR_0012.png"
+      }
+    },
+    "SP_SR_0011": {
+      "name": "てとりあしとり",
+      "card": {
+        "path": "card-details/sr/SP_SR_0011.webp"
+      },
+      "skill_card": {
+        "name": "ご指導ご鞭撻",
+        "path": "skill-cards/sr/SP_SR_0011.png"
+      }
+    },
+    "SP_SR_0010": {
+      "name": "ほっぺた、ぷに",
+      "card": {
+        "path": "card-details/sr/SP_SR_0010.webp"
+      },
+      "produce_item": {
+        "name": "手作りのご褒美",
+        "path": "produce-items/sr/SP_SR_0010.png"
+      }
+    },
+    "SP_SR_0009": {
+      "name": "魅惑の大腿四頭筋",
+      "card": {
+        "path": "card-details/sr/SP_SR_0009.webp"
+      },
+      "skill_card": {
+        "name": "ストレッチ談議",
+        "path": "skill-cards/sr/SP_SR_0009.png"
+      }
+    },
+    "SP_SR_0008": {
+      "name": "ふわふわでワクワク",
+      "card": {
+        "path": "card-details/sr/SP_SR_0008.webp"
+      },
+      "produce_item": {
+        "name": "ふわふわでもこもこ",
+        "path": "produce-items/sr/SP_SR_0008.png"
+      }
+    },
+    "SP_SR_0007": {
+      "name": "嬉し恥ずかし夢心地",
+      "card": {
+        "path": "card-details/sr/SP_SR_0007.webp"
+      },
+      "produce_item": {
+        "name": "お姉さま大百科",
+        "path": "produce-items/sr/SP_SR_0007.png"
+      }
+    },
+    "SP_SR_0006": {
+      "name": "実食！例のSSD",
+      "card": {
+        "path": "card-details/sr/SP_SR_0006.webp"
+      },
+      "produce_item": {
+        "name": "例のSSDの秘密",
+        "path": "produce-items/sr/SP_SR_0006.png"
+      }
+    },
+    "SP_SR_0005": {
+      "name": "マイペース、マイライフ",
+      "card": {
+        "path": "card-details/sr/SP_SR_0005.webp"
+      },
+      "produce_item": {
+        "name": "一緒にお昼寝ポプリ",
+        "path": "produce-items/sr/SP_SR_0005.png"
+      }
+    },
+    "SP_SR_0004": {
+      "name": "思惑とガクガク",
+      "card": {
+        "path": "card-details/sr/SP_SR_0004.webp"
+      },
+      "produce_item": {
+        "name": "私が見つけた逸材メモ",
+        "path": "produce-items/sr/SP_SR_0004.png"
+      }
+    },
+    "SP_SR_0003": {
+      "name": "ほっとけないクラスメイト",
+      "card": {
+        "path": "card-details/sr/SP_SR_0003.webp"
+      },
+      "produce_item": {
+        "name": "朝一の助け舟",
+        "path": "produce-items/sr/SP_SR_0003.png"
+      }
+    },
+    "SP_SR_0002": {
+      "name": "いつか、きっと花開く",
+      "card": {
+        "path": "card-details/sr/SP_SR_0002.webp"
+      },
+      "produce_item": {
+        "name": "誓いの花びら",
+        "path": "produce-items/sr/SP_SR_0002.png"
+      }
+    },
+    "SP_SR_0001": {
+      "name": "はじめてのお友達",
+      "card": {
+        "path": "card-details/sr/SP_SR_0001.webp"
+      },
+      "skill_card": {
+        "name": "全力サポート",
+        "path": "skill-cards/sr/SP_SR_0001.png"
+      }
+    },
+    "SP_SSR_0117": {
+      "name": "お嬢様、失礼いたします",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0117.webp"
+      },
+      "produce_item": {
+        "name": "お嬢様おでかけセット",
+        "path": "produce-items/ssr/SP_SSR_0117.png"
+      }
+    },
+    "SP_SSR_0116": {
+      "name": "こんなお写真もありますわ",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0116.webp"
+      },
+      "produce_item": {
+        "name": "仲良しアルバム",
+        "path": "produce-items/ssr/SP_SSR_0116.png"
+      }
+    },
+    "SP_SSR_0115": {
+      "name": "みんなも読んでみてっ！",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0115.webp"
+      },
+      "produce_item": {
+        "name": "過激め？チョイス",
+        "path": "produce-items/ssr/SP_SSR_0115.png"
+      }
+    },
+    "SP_SSR_0114": {
+      "name": "デ、デートのお誘い！？",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0114.webp"
+      },
+      "produce_item": {
+        "name": "お誘いチケット",
+        "path": "produce-items/ssr/SP_SSR_0114.png"
+      }
+    },
+    "SP_SSR_0113": {
+      "name": "これがあのかぼちゃ……",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0113.webp"
+      },
+      "produce_item": {
+        "name": "花海ファームランタン",
+        "path": "produce-items/ssr/SP_SSR_0113.png"
+      }
+    },
+    "SP_SSR_0112": {
+      "name": "小悪魔になっちゃえ♪",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0112.webp"
+      },
+      "skill_card": {
+        "name": "なりきりデビル",
+        "path": "skill-cards/ssr/SP_SSR_0112.png"
+      }
+    },
+    "SP_SSR_0111": {
+      "name": "わたしに、まかせて",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0111.webp"
+      },
+      "skill_card": {
+        "name": "うたたねレポート",
+        "path": "skill-cards/ssr/SP_SSR_0111.png"
+      }
+    },
+    "SP_SSR_0110": {
+      "name": "もうすぐ本番ですね",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0110.webp"
+      },
+      "produce_item": {
+        "name": "素敵なお仕事",
+        "path": "produce-items/ssr/SP_SSR_0110.png"
+      }
+    },
+    "SP_SSR_0109": {
+      "name": "イクラ～♪　ウニ～♪",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0109.webp"
+      },
+      "produce_item": {
+        "name": "たらふくすし放題♪",
+        "path": "produce-items/ssr/SP_SSR_0109.png"
+      }
+    },
+    "SP_SSR_0108": {
+      "name": "大切な思い出、またひとつ",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0108.webp"
+      },
+      "produce_item": {
+        "name": "真夏に咲く太陽",
+        "path": "produce-items/ssr/SP_SSR_0108.png"
+      }
+    },
+    "SP_SSR_0107": {
+      "name": "食レポ、得意かも！",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0107.webp"
+      },
+      "produce_item": {
+        "name": "大満足レポート♪",
+        "path": "produce-items/ssr/SP_SSR_0107.png"
+      }
+    },
+    "SP_SSR_0106": {
+      "name": "風紀が乱れるぞ！",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0106.webp"
+      },
+      "skill_card": {
+        "name": "ぴらっ♪",
+        "path": "skill-cards/ssr/SP_SSR_0106.png"
+      }
+    },
+    "SP_SSR_0105": {
+      "name": "インタビューお願いします",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0105.webp"
+      },
+      "produce_item": {
+        "name": "注目インタビュー！",
+        "path": "produce-items/ssr/SP_SSR_0105.png"
+      }
+    },
+    "SP_SSR_0104": {
+      "name": "次の曲は～ッあの曲だ！！",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0104.webp"
+      },
+      "produce_item": {
+        "name": "全力おうえんうちわ",
+        "path": "produce-items/ssr/SP_SSR_0104.png"
+      }
+    },
+    "SP_SSR_0103": {
+      "name": "おでん、通りま～すッ！",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0103.webp"
+      },
+      "skill_card": {
+        "name": "あつあつはふはふ",
+        "path": "skill-cards/ssr/SP_SSR_0103.png"
+      }
+    },
+    "SP_SSR_0102": {
+      "name": "どーなっちゃうの～？",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0102.webp"
+      },
+      "produce_item": {
+        "name": "恋心のゆくえ",
+        "path": "produce-items/ssr/SP_SSR_0102.png"
+      }
+    },
+    "SP_SSR_0101": {
+      "name": "私を楽しませろ",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0101.webp"
+      },
+      "skill_card": {
+        "name": "お手並み拝見",
+        "path": "skill-cards/ssr/SP_SSR_0101.png"
+      }
+    },
+    "SP_SSR_0100": {
+      "name": "私たちも成長していくぞ！",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0100.webp"
+      },
+      "produce_item": {
+        "name": "夢の手助け",
+        "path": "produce-items/ssr/SP_SSR_0100.png"
+      }
+    },
+    "SP_SSR_0099": {
+      "name": "……騒々しいお祭りね",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0099.webp"
+      },
+      "produce_item": {
+        "name": "想定外のチケット",
+        "path": "produce-items/ssr/SP_SSR_0099.png"
+      }
+    },
+    "SP_SSR_0098": {
+      "name": "あなたとふたり、電車で",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0098.webp"
+      },
+      "skill_card": {
+        "name": "ガタゴトすやすや",
+        "path": "skill-cards/ssr/SP_SSR_0098.png"
+      }
+    },
+    "SP_SSR_0097": {
+      "name": "上かッ！！",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0097.webp"
+      },
+      "skill_card": {
+        "name": "頭上に注意！",
+        "path": "skill-cards/ssr/SP_SSR_0097.png"
+      }
+    },
+    "SP_SSR_0096": {
+      "name": "長旅おつかれさま！",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0096.webp"
+      },
+      "produce_item": {
+        "name": "夢を叶えるために",
+        "path": "produce-items/ssr/SP_SSR_0096.png"
+      }
+    },
+    "SP_SSR_0095": {
+      "name": "パーティー楽しみだねっ！",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0095.webp"
+      },
+      "produce_item": {
+        "name": "おかいものバッグ",
+        "path": "produce-items/ssr/SP_SSR_0095.png"
+      }
+    },
+    "SP_SSR_0094": {
+      "name": "進化したお弁当、気になる",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0094.webp"
+      },
+      "produce_item": {
+        "name": "咲季の完全食・改",
+        "path": "produce-items/ssr/SP_SSR_0094.png"
+      }
+    },
+    "SP_SSR_0093": {
+      "name": "あたしの勝ち、ですね～！",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0093.webp"
+      },
+      "skill_card": {
+        "name": "せーのでぱくっ！",
+        "path": "skill-cards/ssr/SP_SSR_0093.png"
+      }
+    },
+    "SP_SSR_0092": {
+      "name": "合格おめでとう！",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0092.webp"
+      },
+      "produce_item": {
+        "name": "花海メモリアル",
+        "path": "produce-items/ssr/SP_SSR_0092.png"
+      }
+    },
+    "SP_SSR_0091": {
+      "name": "かかってらっしゃい！",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0091.webp"
+      },
+      "skill_card": {
+        "name": "お姉ちゃん、参戦！",
+        "path": "skill-cards/ssr/SP_SSR_0091.png"
+      }
+    },
+    "SP_SSR_0090": {
+      "name": "みいつけた。",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0090.webp"
+      },
+      "produce_item": {
+        "name": "迷子のゆくえ",
+        "path": "produce-items/ssr/SP_SSR_0090.png"
+      }
+    },
+    "SP_SSR_0089": {
+      "name": "思い出の宝箱だ、ね",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0089.webp"
+      },
+      "skill_card": {
+        "name": "ふれんどめもりーず",
+        "path": "skill-cards/ssr/SP_SSR_0089.png"
+      }
+    },
+    "SP_SSR_0088": {
+      "name": "手毬のリサイタル、だね",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0088.webp"
+      },
+      "skill_card": {
+        "name": "寒空リサイタル",
+        "path": "skill-cards/ssr/SP_SSR_0088.png"
+      }
+    },
+    "SP_SSR_0087": {
+      "name": "オシャレもメイクも♪",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0087.webp"
+      },
+      "produce_item": {
+        "name": "ぴったしコレクション",
+        "path": "produce-items/ssr/SP_SSR_0087.png"
+      }
+    },
+    "SP_SSR_0086": {
+      "name": "堂々とサボってる！？",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0086.webp"
+      },
+      "skill_card": {
+        "name": "あこがれ不良ムーブ",
+        "path": "skill-cards/ssr/SP_SSR_0086.png"
+      }
+    },
+    "SP_SSR_0085": {
+      "name": "自分と向き合う時間だ",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0085.webp"
+      },
+      "produce_item": {
+        "name": "無我の境地",
+        "path": "produce-items/ssr/SP_SSR_0085.png"
+      }
+    },
+    "SP_SSR_0084": {
+      "name": "なぜこんなところにッ！？",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0084.webp"
+      },
+      "produce_item": {
+        "name": "完全制覇でポン",
+        "path": "produce-items/ssr/SP_SSR_0084.png"
+      }
+    },
+    "SP_SSR_0083": {
+      "name": "貸せ、手本を見せてやる！",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0083.webp"
+      },
+      "produce_item": {
+        "name": "めちゃかわプリ",
+        "path": "produce-items/ssr/SP_SSR_0083.png"
+      }
+    },
+    "SP_SSR_0082": {
+      "name": "メリクリ、おねーちゃん♪",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0082.webp"
+      },
+      "skill_card": {
+        "name": "いたずらサンタさん",
+        "path": "skill-cards/ssr/SP_SSR_0082.png"
+      }
+    },
+    "SP_SSR_0081": {
+      "name": "やっと見つけたぞ！",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0081.webp"
+      },
+      "produce_item": {
+        "name": "寝心地は良好",
+        "path": "produce-items/ssr/SP_SSR_0081.png"
+      }
+    },
+    "SP_SSR_0080": {
+      "name": "ぜったいに取るんだ！",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0080.webp"
+      },
+      "skill_card": {
+        "name": "執念キャッチャー",
+        "path": "skill-cards/ssr/SP_SSR_0080.jpg"
+      }
+    },
+    "SP_SSR_0079": {
+      "name": "レディ・セット、ゴー！",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0079.webp"
+      },
+      "skill_card": {
+        "name": "奥義、受け流し！",
+        "path": "skill-cards/ssr/SP_SSR_0079.jpg"
+      }
+    },
+    "SP_SSR_0078": {
+      "name": "クールダウンが大切よ！",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0078.webp"
+      },
+      "skill_card": {
+        "name": "ほぐれるひととき",
+        "path": "skill-cards/ssr/SP_SSR_0078.jpg"
+      }
+    },
+    "SP_SSR_0077": {
+      "name": "月村手毬、興味深いわね",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0077.webp"
+      },
+      "skill_card": {
+        "name": "対象、ロックオン",
+        "path": "skill-cards/ssr/SP_SSR_0077.jpg"
+      }
+    },
+    "SP_SSR_0076": {
+      "name": "これは――お城ッ！！",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0076.webp"
+      },
+      "produce_item": {
+        "name": "お礼のティーセット",
+        "path": "produce-items/ssr/SP_SSR_0076.jpeg"
+      }
+    },
+    "SP_SSR_0075": {
+      "name": "大運動会、開催っ！",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0075.webp"
+      },
+      "skill_card": {
+        "name": "勝利をつかめ！",
+        "path": "skill-cards/ssr/SP_SSR_0075.jpg"
+      }
+    },
+    "SP_SSR_0074": {
+      "name": "ちょっと詳しいんです！",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0074.webp"
+      },
+      "produce_item": {
+        "name": "月刊アニメトーク♪",
+        "path": "produce-items/ssr/SP_SSR_0074.jpg"
+      }
+    },
+    "SP_SSR_0073": {
+      "name": "ｖギャルピーーースッｖ",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0073.webp"
+      },
+      "produce_item": {
+        "name": "しぼまない思い出",
+        "path": "produce-items/ssr/SP_SSR_0073.jpg"
+      }
+    },
+    "SP_SSR_0072": {
+      "name": "おっと、危ないよ",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0072.webp"
+      },
+      "produce_item": {
+        "name": "体力作りの教材？",
+        "path": "produce-items/ssr/SP_SSR_0072.jpg"
+      }
+    },
+    "SP_SSR_0071": {
+      "name": "おい、来てやったぞ！",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0071.webp"
+      },
+      "produce_item": {
+        "name": "ピークタイムフラッグ",
+        "path": "produce-items/ssr/SP_SSR_0071.png"
+      }
+    },
+    "SP_SSR_0070": {
+      "name": "仲直りしましょう",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0070.webp"
+      },
+      "skill_card": {
+        "name": "月明かりに包まれて",
+        "path": "skill-cards/ssr/SP_SSR_0070.png"
+      }
+    },
+    "SP_SSR_0069": {
+      "name": "いつまでも続けばいいのに",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0069.webp"
+      },
+      "skill_card": {
+        "name": "夏夜に咲く思い出",
+        "path": "skill-cards/ssr/SP_SSR_0069.png"
+      }
+    },
+    "SP_SSR_0068": {
+      "name": "盛り上げてこー！",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0068.webp"
+      },
+      "produce_item": {
+        "name": "わいわいタンバリン",
+        "path": "produce-items/ssr/SP_SSR_0068.png"
+      }
+    },
+    "SP_SSR_0067": {
+      "name": "放っておけない気になる子",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0067.webp"
+      },
+      "produce_item": {
+        "name": "面白くて心配な子",
+        "path": "produce-items/ssr/SP_SSR_0067.png"
+      }
+    },
+    "SP_SSR_0066": {
+      "name": "お母さんか！",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0066.webp"
+      },
+      "produce_item": {
+        "name": "好き嫌い禁止！",
+        "path": "produce-items/ssr/SP_SSR_0066.png"
+      }
+    },
+    "SP_SSR_0065": {
+      "name": "どんな関係なんですか？",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0065.webp"
+      },
+      "produce_item": {
+        "name": "手作りサブスク弁当",
+        "path": "produce-items/ssr/SP_SSR_0065.png"
+      }
+    },
+    "SP_SSR_0064": {
+      "name": "いつも頑張ってるね。",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0064.webp"
+      },
+      "produce_item": {
+        "name": "包まれるやさしさ",
+        "path": "produce-items/ssr/SP_SSR_0064.png"
+      }
+    },
+    "SP_SSR_0063": {
+      "name": "推し活なひととき、だね！",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0063.webp"
+      },
+      "produce_item": {
+        "name": "おとものミミズク",
+        "path": "produce-items/ssr/SP_SSR_0063.png"
+      }
+    },
+    "SP_SSR_0062": {
+      "name": "すっかり仲良しって感じ♪",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0062.webp"
+      },
+      "produce_item": {
+        "name": "勝利をその手に",
+        "path": "produce-items/ssr/SP_SSR_0062.png"
+      }
+    },
+    "SP_SSR_0061": {
+      "name": "迷子のおしらせです",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0061.webp"
+      },
+      "produce_item": {
+        "name": "迷子のお呼び出し",
+        "path": "produce-items/ssr/SP_SSR_0061.png"
+      }
+    },
+    "SP_SSR_0060": {
+      "name": "みんなの意見を聞かせて♪",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0060.webp"
+      },
+      "produce_item": {
+        "name": "麻央にぴったし",
+        "path": "produce-items/ssr/SP_SSR_0060.png"
+      }
+    },
+    "SP_SSR_0059": {
+      "name": "よくやったな、倉本。",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0059.webp"
+      },
+      "produce_item": {
+        "name": "居残りの生徒会室",
+        "path": "produce-items/ssr/SP_SSR_0059.png"
+      }
+    },
+    "SP_SSR_0058": {
+      "name": "ひとりごとです",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0058.webp"
+      },
+      "produce_item": {
+        "name": "思い出カタメコイメ",
+        "path": "produce-items/ssr/SP_SSR_0058.png"
+      }
+    },
+    "SP_SSR_0057": {
+      "name": "わたしと美鈴、超仲良し",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0057.webp"
+      },
+      "produce_item": {
+        "name": "勝利より大切なもの",
+        "path": "produce-items/ssr/SP_SSR_0057.png"
+      }
+    },
+    "SP_SSR_0056": {
+      "name": "利用し合うのが友達！",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0056.webp"
+      },
+      "produce_item": {
+        "name": "パワーをくれるモノ",
+        "path": "produce-items/ssr/SP_SSR_0056.png"
+      }
+    },
+    "SP_SSR_0055": {
+      "name": "相変わらず不器用ね",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0055.webp"
+      },
+      "produce_item": {
+        "name": "幼馴染の意地",
+        "path": "produce-items/ssr/SP_SSR_0055.png"
+      }
+    },
+    "SP_SSR_0054": {
+      "name": "さあ、もう一戦！",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0054.webp"
+      },
+      "skill_card": {
+        "name": "勝負はこれから！",
+        "path": "skill-cards/ssr/SP_SSR_0054.png"
+      }
+    },
+    "SP_SSR_0053": {
+      "name": "相手にとって不足なしよ！",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0053.webp"
+      },
+      "skill_card": {
+        "name": "対戦お願いします！",
+        "path": "skill-cards/ssr/SP_SSR_0053.png"
+      }
+    },
+    "SP_SSR_0052": {
+      "name": "ここから始まるんだね！",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0052.webp"
+      },
+      "produce_item": {
+        "name": "夢へのスタートライン",
+        "path": "produce-items/ssr/SP_SSR_0052.png"
+      }
+    },
+    "SP_SSR_0051": {
+      "name": "ひとりで立てますか？",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0051.webp"
+      },
+      "produce_item": {
+        "name": "ひとりだちシューズ",
+        "path": "produce-items/ssr/SP_SSR_0051.png"
+      }
+    },
+    "SP_SSR_0050": {
+      "name": "新生活のはじまりだね",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0050.webp"
+      },
+      "produce_item": {
+        "name": "体力自慢の本気",
+        "path": "produce-items/ssr/SP_SSR_0050.png"
+      }
+    },
+    "SP_SSR_0049": {
+      "name": "あなたたちのことが好き",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0049.webp"
+      },
+      "produce_item": {
+        "name": "ゆうじょーのきろく",
+        "path": "produce-items/ssr/SP_SSR_0049.png"
+      }
+    },
+    "SP_SSR_0048": {
+      "name": "絶対にお渡ししますわっ！",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0048.webp"
+      },
+      "produce_item": {
+        "name": "お姉さまビッグラブ",
+        "path": "produce-items/ssr/SP_SSR_0048.png"
+      }
+    },
+    "SP_SSR_0047": {
+      "name": "バレンタイン♡会議中ーっ！",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0047.webp"
+      },
+      "skill_card": {
+        "name": "バレンタイン大作戦！",
+        "path": "skill-cards/ssr/SP_SSR_0047.png"
+      }
+    },
+    "SP_SSR_0046": {
+      "name": "はいっ、みんなも一緒に♪",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0046.webp"
+      },
+      "produce_item": {
+        "name": "ぜったいいっぱい！",
+        "path": "produce-items/ssr/SP_SSR_0046.png"
+      }
+    },
+    "SP_SSR_0045": {
+      "name": "これが私達の、3年間",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0045.webp"
+      },
+      "produce_item": {
+        "name": "すごすぎるバトン",
+        "path": "produce-items/ssr/SP_SSR_0045.png"
+      }
+    },
+    "SP_SSR_0044": {
+      "name": "もう一度、最初から！",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0044.webp"
+      },
+      "skill_card": {
+        "name": "練習再開！",
+        "path": "skill-cards/ssr/SP_SSR_0044.png"
+      }
+    },
+    "SP_SSR_0043": {
+      "name": "待ちなさーい！",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0043.webp"
+      },
+      "produce_item": {
+        "name": "はいぼくせんげん",
+        "path": "produce-items/ssr/SP_SSR_0043.png"
+      }
+    },
+    "SP_SSR_0042": {
+      "name": "あったかいね",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0042.webp"
+      },
+      "produce_item": {
+        "name": "ぬくもりふたりぶん",
+        "path": "produce-items/ssr/SP_SSR_0042.png"
+      }
+    },
+    "SP_SSR_0041": {
+      "name": "キラキラして綺麗～っ！",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0041.webp"
+      },
+      "skill_card": {
+        "name": "光の夜",
+        "path": "skill-cards/ssr/SP_SSR_0041.png"
+      }
+    },
+    "SP_SSR_0040": {
+      "name": "さみだれ",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0040.webp"
+      },
+      "skill_card": {
+        "name": "雨宿りのバス停",
+        "path": "skill-cards/ssr/SP_SSR_0040.png"
+      }
+    },
+    "SP_SSR_0039": {
+      "name": "プロデュースって大変ね",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0039.webp"
+      },
+      "produce_item": {
+        "name": "アイドルパワー測定機",
+        "path": "produce-items/ssr/SP_SSR_0039.png"
+      }
+    },
+    "SP_SSR_0038": {
+      "name": "ぜったい追いついてやる！",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0038.webp"
+      },
+      "skill_card": {
+        "name": "紅葉ランニング",
+        "path": "skill-cards/ssr/SP_SSR_0038.png"
+      }
+    },
+    "SP_SSR_0037": {
+      "name": "そろそろ焼けたかな？",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0037.webp"
+      },
+      "skill_card": {
+        "name": "ほかほか焼き芋",
+        "path": "skill-cards/ssr/SP_SSR_0037.jpg"
+      }
+    },
+    "SP_SSR_0036": {
+      "name": "食欲の秋なんです",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0036.webp"
+      },
+      "produce_item": {
+        "name": "ごちそうさまでした",
+        "path": "produce-items/ssr/SP_SSR_0036.jpg"
+      }
+    },
+    "SP_SSR_0035": {
+      "name": "会長、準備は万端です",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0035.webp"
+      },
+      "produce_item": {
+        "name": "会長の完璧な計画",
+        "path": "produce-items/ssr/SP_SSR_0035.jpg"
+      }
+    },
+    "SP_SSR_0034": {
+      "name": "すっかり秋色ですわね！",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0034.webp"
+      },
+      "produce_item": {
+        "name": "つやつやでふさふさ",
+        "path": "produce-items/ssr/SP_SSR_0034.jpg"
+      }
+    },
+    "SP_SSR_0033": {
+      "name": "似合うんじゃない？",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0033.webp"
+      },
+      "produce_item": {
+        "name": "いじっぱりバルーン",
+        "path": "produce-items/ssr/SP_SSR_0033.jpg"
+      }
+    },
+    "SP_SSR_0032": {
+      "name": "二人ならあっという間だね",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0032.webp"
+      },
+      "produce_item": {
+        "name": "とろけた時間",
+        "path": "produce-items/ssr/SP_SSR_0032.jpg"
+      }
+    },
+    "SP_SSR_0031": {
+      "name": "1人たりとも欠ける事なく",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0031.webp"
+      },
+      "produce_item": {
+        "name": "みんなの教科書",
+        "path": "produce-items/ssr/SP_SSR_0031.jpg"
+      }
+    },
+    "SP_SSR_0030": {
+      "name": "新たな挑戦の成功ですわ！",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0030.webp"
+      },
+      "produce_item": {
+        "name": "とうちょーのきろく",
+        "path": "produce-items/ssr/SP_SSR_0030.jpg"
+      }
+    },
+    "SP_SSR_0029": {
+      "name": "ゆっくりと過ごしましょう",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0029.webp"
+      },
+      "skill_card": {
+        "name": "その本、おもしろい？",
+        "path": "skill-cards/ssr/SP_SSR_0029.jpg"
+      }
+    },
+    "SP_SSR_0028": {
+      "name": "あっちも行きたいですわ！",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0028.webp"
+      },
+      "produce_item": {
+        "name": "ほっこりまんぷく",
+        "path": "produce-items/ssr/SP_SSR_0028.png"
+      }
+    },
+    "SP_SSR_0027": {
+      "name": "夏を満喫するわよ！",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0027.webp"
+      },
+      "produce_item": {
+        "name": "873シューター",
+        "path": "produce-items/ssr/SP_SSR_0027.png"
+      }
+    },
+    "SP_SSR_0026": {
+      "name": "花火、やりませんか……？",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0026.webp"
+      },
+      "skill_card": {
+        "name": "交わる感情",
+        "path": "skill-cards/ssr/SP_SSR_0026.png"
+      }
+    },
+    "SP_SSR_0025": {
+      "name": "夏を楽しみましょう！",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0025.webp"
+      },
+      "produce_item": {
+        "name": "オーバーパワーボール",
+        "path": "produce-items/ssr/SP_SSR_0025.png"
+      }
+    },
+    "SP_SSR_0024": {
+      "name": "一時休戦です",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0024.webp"
+      },
+      "skill_card": {
+        "name": "はじける水しぶき",
+        "path": "skill-cards/ssr/SP_SSR_0024.png"
+      }
+    },
+    "SP_SSR_0023": {
+      "name": "もうっ！　冷たいよ！",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0023.webp"
+      },
+      "produce_item": {
+        "name": "負けず嫌いの勲章",
+        "path": "produce-items/ssr/SP_SSR_0023.png"
+      }
+    },
+    "SP_SSR_0022": {
+      "name": "「ア」じゃなくて「エ」！",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0022.webp"
+      },
+      "skill_card": {
+        "name": "お泊り猛勉強",
+        "path": "skill-cards/ssr/SP_SSR_0022.jpg"
+      }
+    },
+    "SP_SSR_0021": {
+      "name": "晴れたね",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0021.webp"
+      },
+      "produce_item": {
+        "name": "虹かけるクロス",
+        "path": "produce-items/ssr/SP_SSR_0021.png"
+      }
+    },
+    "SP_SSR_0020": {
+      "name": "まだ上がりませんように！",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0020.webp"
+      },
+      "skill_card": {
+        "name": "みずたまりスキップ",
+        "path": "skill-cards/ssr/SP_SSR_0020.png"
+      }
+    },
+    "SP_SSR_0019": {
+      "name": "何やってるんだろう、",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0019.webp"
+      },
+      "produce_item": {
+        "name": "天川ラーメン巡り",
+        "path": "produce-items/ssr/SP_SSR_0019.png"
+      }
+    },
+    "SP_SSR_0018": {
+      "name": "第2回教室パーティー！",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0018.webp"
+      },
+      "skill_card": {
+        "name": "薄れゆく壁",
+        "path": "skill-cards/ssr/SP_SSR_0018.png"
+      }
+    },
+    "SP_SSR_0017": {
+      "name": "あなたにも作ってあげる！",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0017.webp"
+      },
+      "produce_item": {
+        "name": "得体のしれないモノ",
+        "path": "produce-items/ssr/SP_SSR_0017.jpeg"
+      }
+    },
+    "SP_SSR_0016": {
+      "name": "こいつらめんどくさー",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0016.webp"
+      },
+      "skill_card": {
+        "name": "喧嘩するほど仲がいい",
+        "path": "skill-cards/ssr/SP_SSR_0016.png"
+      }
+    },
+    "SP_SSR_0015": {
+      "name": "お姉ちゃんに任せなさい！",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0015.webp"
+      },
+      "produce_item": {
+        "name": "満開ペアヘアピン",
+        "path": "produce-items/ssr/SP_SSR_0015.png"
+      }
+    },
+    "SP_SSR_0014": {
+      "name": "ぐぬぬぬぬ…………！",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0014.webp"
+      },
+      "produce_item": {
+        "name": "悔しさの象徴",
+        "path": "produce-items/ssr/SP_SSR_0014.png"
+      }
+    },
+    "SP_SSR_0013": {
+      "name": "次の桜の季節には。",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0013.webp"
+      },
+      "skill_card": {
+        "name": "花萌ゆ季節",
+        "path": "skill-cards/ssr/SP_SSR_0013.png"
+      }
+    },
+    "SP_SSR_0012": {
+      "name": "お疲れ様、千奈ちゃん。",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0012.webp"
+      },
+      "skill_card": {
+        "name": "陽だまりの生徒会室",
+        "path": "skill-cards/ssr/SP_SSR_0012.png"
+      }
+    },
+    "SP_SSR_0011": {
+      "name": "まるで王子様みたいな",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0011.webp"
+      },
+      "produce_item": {
+        "name": "星のリトルプリンス",
+        "path": "produce-items/ssr/SP_SSR_0011.png"
+      }
+    },
+    "SP_SSR_0010": {
+      "name": "おいしい顔、いただき～！",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0010.webp"
+      },
+      "skill_card": {
+        "name": "心のアルバム",
+        "path": "skill-cards/ssr/SP_SSR_0010.png"
+      }
+    },
+    "SP_SSR_0009": {
+      "name": "わたしたち、やればできる",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0009.webp"
+      },
+      "skill_card": {
+        "name": "ダメダメクッキング",
+        "path": "skill-cards/ssr/SP_SSR_0009.png"
+      }
+    },
+    "SP_SSR_0008": {
+      "name": "可愛いと可愛いで可愛い！",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0008.webp"
+      },
+      "skill_card": {
+        "name": "ティーパーティ",
+        "path": "skill-cards/ssr/SP_SSR_0008.png"
+      }
+    },
+    "SP_SSR_0007": {
+      "name": "私の目に狂いはない",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0007.webp"
+      },
+      "produce_item": {
+        "name": "仲直りのきっかけ",
+        "path": "produce-items/ssr/SP_SSR_0007.png"
+      }
+    },
+    "SP_SSR_0006": {
+      "name": "また、あんなに無理をして",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0006.webp"
+      },
+      "produce_item": {
+        "name": "曇りをぬぐったタオル",
+        "path": "produce-items/ssr/SP_SSR_0006.png"
+      }
+    },
+    "SP_SSR_0005": {
+      "name": "あら、奇遇ね",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0005.webp"
+      },
+      "produce_item": {
+        "name": "スカウト遮り帽",
+        "path": "produce-items/ssr/SP_SSR_0005.png"
+      }
+    },
+    "SP_SSR_0004": {
+      "name": "まじか。",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0004.webp"
+      },
+      "skill_card": {
+        "name": "光のステージ",
+        "path": "skill-cards/ssr/SP_SSR_0004.png"
+      }
+    },
+    "SP_SSR_0003": {
+      "name": "仕事のつもりで臨みなさい",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0003.webp"
+      },
+      "skill_card": {
+        "name": "新生徒会爆誕！",
+        "path": "skill-cards/ssr/SP_SSR_0003.png"
+      }
+    },
+    "SP_SSR_0002": {
+      "name": "ほら、一緒に持と♪",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0002.webp"
+      },
+      "produce_item": {
+        "name": "夢にあふれた大荷物",
+        "path": "produce-items/ssr/SP_SSR_0002.png"
+      }
+    },
+    "SP_SSR_0001": {
+      "name": "きみは、自慢の生徒です",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0001.webp"
+      },
+      "produce_item": {
+        "name": "信頼の証",
+        "path": "produce-items/ssr/SP_SSR_0001.png"
+      }
+    }
+  }
+}

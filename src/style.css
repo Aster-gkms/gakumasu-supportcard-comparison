@@ -1,0 +1,9 @@
+@import './styles/base.css';
+@import './styles/training.css';
+@import './styles/layout.css';
+@import './styles/detail.css';
+@import './styles/filters.css';
+@import './styles/score.css';
+@import './styles/inventory.css';
+@import './styles/deck.css';
+@import './styles/other.css';

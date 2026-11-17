@@ -1,0 +1,178 @@
+# 編成テンプレート。
+# センス3・ロジック好印象3・ロジックやる気3・アノマリー3、計12パターンを管理します。
+
+sense:
+  vo_da:
+    cards:
+      - id: SP_SR_0008
+        name: ふわふわでワクワク
+      - id: SP_SSR_0069
+        name: いつまでも続けばいいのに
+      - id: SP_SSR_0071
+        name: おい、来てやったぞ！
+      - id: SP_SSR_0028
+        name: あっちも行きたいですわ！
+      - id: SP_SSR_0064
+        name: いつも頑張ってるね。
+      - id: SP_SSR_0110
+        name: もうすぐ本番ですね
+  da_vi:
+    cards:
+      - id: SP_SR_0008
+        name: ふわふわでワクワク
+      - id: SP_SSR_0069
+        name: いつまでも続けばいいのに
+      - id: SP_SSR_0071
+        name: おい、来てやったぞ！
+      - id: SP_SSR_0028
+        name: あっちも行きたいですわ！
+      - id: SP_SSR_0064
+        name: いつも頑張ってるね。
+      - id: SP_SSR_0110
+        name: もうすぐ本番ですね
+  vo_vi:
+    cards:
+      - id: SP_SR_0008
+        name: ふわふわでワクワク
+      - id: SP_SSR_0069
+        name: いつまでも続けばいいのに
+      - id: SP_SSR_0071
+        name: おい、来てやったぞ！
+      - id: SP_SSR_0028
+        name: あっちも行きたいですわ！
+      - id: SP_SSR_0064
+        name: いつも頑張ってるね。
+      - id: SP_SSR_0110
+        name: もうすぐ本番ですね
+
+logic:
+  good_impression:
+    vo_da:
+      cards:
+        - id: SP_SR_0008
+          name: ふわふわでワクワク
+        - id: SP_SSR_0069
+          name: いつまでも続けばいいのに
+        - id: SP_SSR_0081
+          name: やっと見つけたぞ！
+        - id: SP_SSR_0037
+          name: そろそろ焼けたかな？
+        - id: SP_SSR_0072
+          name: おっと、危ないよ
+        - id: SP_SSR_0077
+          name: 月村手毬、興味深いわね
+    da_vi:
+      cards:
+        - id: SP_SR_0008
+          name: ふわふわでワクワク
+        - id: SP_SSR_0069
+          name: いつまでも続けばいいのに
+        - id: SP_SSR_0081
+          name: やっと見つけたぞ！
+        - id: SP_SSR_0037
+          name: そろそろ焼けたかな？
+        - id: SP_SSR_0086
+          name: 堂々とサボってる！？
+        - id: SP_SSR_0110
+          name: もうすぐ本番ですね
+    vo_vi:
+      cards:
+        - id: SP_SSR_0072
+          name: おっと、危ないよ
+        - id: SP_SSR_0077
+          name: 月村手毬、興味深いわね
+        - id: SP_SSR_0086
+          name: 堂々とサボってる！？
+        - id: SP_SSR_0115
+          name: みんなも読んでみてっ！
+        - id: SP_SSR_0008
+          name: 可愛いと可愛いで可愛い！
+        - id: SP_SSR_0110
+          name: もうすぐ本番ですね
+  motivation:
+    vo_da:
+      cards:
+        - id: SP_SR_0008
+          name: ふわふわでワクワク
+        - id: SP_SSR_0069
+          name: いつまでも続けばいいのに
+        - id: SP_SSR_0081
+          name: やっと見つけたぞ！
+        - id: SP_SSR_0037
+          name: そろそろ焼けたかな？
+        - id: SP_SSR_0065
+          name: どんな関係なんですか？
+        - id: SP_SSR_0072
+          name: おっと、危ないよ
+    da_vi:
+      cards:
+        - id: SP_SR_0008
+          name: ふわふわでワクワク
+        - id: SP_SSR_0069
+          name: いつまでも続けばいいのに
+        - id: SP_SSR_0081
+          name: やっと見つけたぞ！
+        - id: SP_SSR_0037
+          name: そろそろ焼けたかな？
+        - id: SP_SSR_0065
+          name: どんな関係なんですか？
+        - id: SP_SSR_0110
+          name: もうすぐ本番ですね
+    vo_vi:
+      cards:
+        - id: SP_SSR_0072
+          name: おっと、危ないよ
+        - id: SP_SSR_0077
+          name: 月村手毬、興味深いわね
+        - id: SP_SSR_0065
+          name: どんな関係なんですか？
+        - id: SP_SSR_0115
+          name: みんなも読んでみてっ！
+        - id: SP_SSR_0008
+          name: 可愛いと可愛いで可愛い！
+        - id: SP_SSR_0110
+          name: もうすぐ本番ですね
+
+anomaly:
+  vo_da:
+    cards:
+      - id: SP_SR_0008
+        name: ふわふわでワクワク
+      - id: SP_SSR_0069
+        name: いつまでも続けばいいのに
+      - id: SP_SSR_0059
+        name: よくやったな、倉本。
+      - id: SP_SSR_0084
+        name: なぜこんなところにッ！？
+      - id: SP_SSR_0067
+        name: 放っておけない気になる子
+      - id: SP_SSR_0110
+        name: もうすぐ本番ですね
+  da_vi:
+    cards:
+      - id: SP_SR_0008
+        name: ふわふわでワクワク
+      - id: SP_SSR_0069
+        name: いつまでも続けばいいのに
+      - id: SP_SSR_0059
+        name: よくやったな、倉本。
+      - id: SP_SSR_0084
+        name: なぜこんなところにッ！？
+      - id: SP_SSR_0067
+        name: 放っておけない気になる子
+      - id: SP_SSR_0110
+        name: もうすぐ本番ですね
+  vo_vi:
+    cards:
+      - id: SP_SR_0008
+        name: ふわふわでワクワク
+      - id: SP_SSR_0069
+        name: いつまでも続けばいいのに
+      - id: SP_SSR_0059
+        name: よくやったな、倉本。
+      - id: SP_SSR_0084
+        name: なぜこんなところにッ！？
+      - id: SP_SSR_0067
+        name: 放っておけない気になる子
+      - id: SP_SSR_0110
+        name: もうすぐ本番ですね

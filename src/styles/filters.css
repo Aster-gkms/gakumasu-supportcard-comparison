@@ -1,0 +1,126 @@
+.score-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  gap: 10px 14px;
+  margin: 14px 0;
+}
+.score-control {
+  display: grid;
+  min-width: 0;
+  gap: 4px;
+}
+/* 凸数は所持状況比較でも幅・高さを保持し、他のフィルターを動かさない。 */
+.comparison-filter-group {
+  display: contents;
+}
+.comparison-filter-group.plan-limit-group {
+  display: flex;
+  align-items: start;
+  gap: 14px;
+  max-width: 100%;
+  min-width: 0;
+}
+.plan-limit-group > .comparison-limit-slot {
+  flex-shrink: 0;
+}
+.comparison-limit-slot.is-hidden {
+  visibility: hidden;
+  pointer-events: none;
+}
+.score-controls [data-filter='ownership'] .multi-filter-selector button {
+  /* 比較モードによる選択の変更で、文字幅やフィルターの折り返しを変えない。 */
+  font-weight: 700;
+}
+.score-controls .limit-label {
+  font-size: 0.75rem;
+}
+.score-controls .limit-selector {
+  padding: 3px;
+  border-radius: 9px;
+}
+.score-controls .limit-selector:not(.multi-filter-selector) {
+  grid-template-columns: repeat(5, 28px);
+}
+.score-controls .limit-selector::before {
+  top: 3px;
+  bottom: 3px;
+  left: 3px;
+  width: calc((100% - 6px) / 5);
+  border-radius: 6px;
+  box-shadow: none;
+}
+.score-controls .limit-selector button {
+  min-height: 32px;
+  padding: 3px 6px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+.score-controls .limit-selector:not(.multi-filter-selector) button {
+  padding-inline: 0;
+}
+.card-filter {
+  max-width: 100%;
+}
+.filter-scroll {
+  overflow-x: auto;
+  padding: 3px;
+  margin: -3px;
+}
+.multi-filter-selector {
+  width: max-content;
+  min-width: 100%;
+  grid-template-columns: repeat(var(--filter-count), max-content);
+}
+.multi-filter-selector button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  font-size: 0.78rem;
+  white-space: nowrap;
+}
+.score-controls .multi-filter-selector .status-badge {
+  width: 24px;
+  height: 24px;
+  font-size: 0.65rem;
+}
+.score-controls .multi-filter-selector .rarity-badge {
+  box-sizing: border-box;
+  min-width: 36px;
+  min-height: 24px;
+  padding: 0 5px;
+  font-size: 0.7rem;
+}
+.multi-filter-selector::before {
+  display: none;
+}
+.multi-filter-selector button[aria-pressed='true'] {
+  border-color: #8accc0;
+  background: #d6ece6;
+}
+.score-controls .limit-selector button[aria-pressed='true'] {
+  box-shadow: none;
+  text-shadow: none;
+}
+.score-cell {
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  white-space: nowrap;
+}
+.attachment-name-cell {
+  min-width: 150px;
+  max-width: 220px;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  font-size: 0.85rem;
+}
+.card-level {
+  font-variant-numeric: tabular-nums;
+}
+.score-cell small {
+  display: block;
+  font-size: 11px;
+  color: #58677a;
+}
