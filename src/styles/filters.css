@@ -69,6 +69,7 @@
   margin: -3px;
 }
 .multi-filter-selector {
+  --filter-count: 1;
   width: max-content;
   min-width: 100%;
   grid-template-columns: repeat(var(--filter-count), max-content);
@@ -123,4 +124,170 @@
   display: block;
   font-size: 11px;
   color: #58677a;
+}
+.filter-toggle-row {
+  display: none;
+}
+.comparison-mobile-sort,
+.comparison-mobile-label,
+.comparison-mobile-limit {
+  display: none;
+}
+@media (max-width: 600px) {
+  .comparison-score-controls .plan-limit-group {
+    display: contents;
+  }
+  .comparison-score-controls .comparison-limit-slot.is-hidden {
+    display: none;
+  }
+  .filter-toggle-row {
+    display: grid;
+    flex-basis: 100%;
+    min-width: 0;
+    gap: 6px;
+  }
+  .filter-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    min-height: 44px;
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+  .filter-summary {
+    margin: 0;
+    color: #546576;
+    font-size: 0.8rem;
+    overflow-wrap: anywhere;
+  }
+  .collapsible-filters:not(.is-filters-open) :is(.card-filter, .comparison-limit-slot) {
+    display: none;
+  }
+  .comparison-mobile-sort {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 12px;
+    font-size: 0.8rem;
+  }
+  .comparison-mobile-sort > span {
+    flex-basis: 100%;
+  }
+  .comparison-mobile-sort button {
+    min-height: 44px;
+    padding: 6px 10px;
+    background: white;
+  }
+  .comparison-mobile-sort button[aria-pressed='true'] {
+    border-color: #8accc0;
+    background: #d6ece6;
+    font-weight: 700;
+  }
+  .comparison-table-scroll {
+    overflow: visible;
+  }
+  .comparison-table-scroll table {
+    display: block;
+    white-space: normal;
+  }
+  /* 見出しは読み上げ用に残し、並べ替えは一覧上部で操作する。 */
+  .comparison-table-scroll thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+  .comparison-table-scroll thead button {
+    visibility: hidden;
+  }
+  .comparison-table-scroll tbody {
+    display: grid;
+    gap: 12px;
+  }
+  .comparison-table-scroll .comparison-card-row {
+    display: grid;
+    grid-template-columns: auto auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 8px 4px;
+    padding: 12px;
+    border: 1px solid #d2e5e8;
+    border-radius: 8px;
+    background: white;
+  }
+  .comparison-table-scroll .comparison-card-row > td {
+    min-width: 0;
+    width: auto;
+    max-width: none;
+    padding: 0;
+    border: 0;
+    font-size: 0.8rem;
+    overflow-wrap: anywhere;
+  }
+  .comparison-card-row > [data-column='name'] {
+    grid-area: 1 / 1 / 2 / 4;
+  }
+  .comparison-card-row > [data-column='total'] {
+    grid-area: 1 / 4 / 2 / -1;
+    align-self: start;
+    color: #245c55;
+    font-weight: 700;
+    white-space: normal;
+  }
+  .comparison-table-scroll td .card-link {
+    width: 100%;
+    max-width: none;
+    min-height: 44px;
+    font-size: 0.85rem;
+  }
+  .comparison-table-scroll .card-link > span {
+    min-width: 0;
+  }
+  .comparison-card-row > [data-column='rarity'] {
+    grid-area: 2 / 1 / 3 / 2;
+  }
+  .comparison-card-row > [data-column='type'] {
+    grid-area: 2 / 2 / 3 / 3;
+  }
+  .comparison-card-row > [data-column='level'] {
+    grid-area: 2 / 3 / 3 / -1;
+    white-space: nowrap;
+  }
+  .comparison-table-scroll .comparison-card-row > [data-column='level'] {
+    font-size: 0.75rem;
+  }
+  .comparison-card-row .rarity-badge {
+    min-width: 36px;
+    min-height: 24px;
+    padding: 2px 5px;
+    font-size: 0.75rem;
+  }
+  .comparison-card-row .status-badge {
+    width: 24px;
+    height: 24px;
+    font-size: 0.65rem;
+  }
+  .comparison-card-row
+    > :is([data-column='owned-limit'], [data-column='tag'], [data-column='plan']) {
+    display: none;
+  }
+  .comparison-card-row > [data-column='attachment'] {
+    grid-area: 3 / 1 / 4 / -1;
+  }
+  .comparison-mobile-label,
+  .comparison-mobile-limit {
+    display: inline;
+  }
+  .comparison-table-scroll .comparison-card-row > .score-cell {
+    font-size: 1.05rem;
+  }
+  .comparison-card-row .score-cell::before {
+    content: '最大点';
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 400;
+  }
 }

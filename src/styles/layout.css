@@ -57,6 +57,13 @@ h2 {
   margin: 0 0 12px;
   font-size: 0.85rem;
 }
+@media (max-width: 600px) {
+  #comparison-panel .lead {
+    margin-bottom: 8px;
+    font-size: 0.75rem;
+    line-height: 1.5;
+  }
+}
 main > section {
   margin-top: 14px;
   border-color: #d2e5e8;

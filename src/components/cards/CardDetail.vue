@@ -103,6 +103,10 @@ function isBackdrop(event: MouseEvent): boolean {
   )
 }
 
+function handleBackdropPointerDown(event: PointerEvent) {
+  backdropPointerDown = isBackdrop(event)
+}
+
 function clickBackdrop(event: MouseEvent) {
   if (backdropPointerDown && isBackdrop(event)) {
     emit('close')
@@ -215,7 +219,7 @@ function effectTypes(value: unknown): string[] {
     aria-labelledby="card-detail-title"
     @cancel.prevent="emit('close')"
     @keydown.tab="keepFocus"
-    @pointerdown="backdropPointerDown = isBackdrop($event)"
+    @pointerdown="handleBackdropPointerDown"
     @click="clickBackdrop"
   >
     <section
@@ -238,19 +242,19 @@ function effectTypes(value: unknown): string[] {
               </h2>
             </div>
             <dl class="card-summary">
-              <div>
+              <div class="card-summary-identity">
                 <dt>レアリティ</dt>
                 <dd><RarityBadge :rarity="card.rarity" /></dd>
               </div>
-              <div>
+              <div class="card-summary-identity">
                 <dt>タイプ</dt>
                 <dd><StatusBadge :kind="card.type" /></dd>
               </div>
-              <div>
+              <div class="card-summary-identity">
                 <dt>プラン</dt>
                 <dd>{{ planLabels[card.plan] }}</dd>
               </div>
-              <div>
+              <div class="card-summary-event">
                 <dt>サポートイベント</dt>
                 <dd>{{ tagLabels[card.tag] }}</dd>
               </div>
@@ -271,9 +275,15 @@ function effectTypes(value: unknown): string[] {
         <button
           type="button"
           class="detail-close"
+          aria-label="詳細を閉じる"
           @click="$emit('close')"
         >
-          詳細を閉じる
+          <span class="detail-close-label">詳細を閉じる</span>
+          <span
+            class="detail-close-icon"
+            aria-hidden="true"
+            >×</span
+          >
         </button>
       </div>
       <div

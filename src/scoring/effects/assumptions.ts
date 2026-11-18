@@ -7,14 +7,11 @@ import { getSupportEventOperations, supportEventAssumption } from './supportEven
 import { produceItemScoreAssumption } from './produceItems.ts'
 import { acquisitionActivationLimit } from './acquisitionLimits.ts'
 
-const restAssumption =
-  '「休む」はレッスン・授業・選抜試験を行った翌日の行動に代えて選べます。選抜試験・本戦ラウンド・インターバルでは選べません'
+const restAssumption = '「休む」はレッスン・授業・選抜試験を行った翌日に選ぶ形として計算しています'
 
-const conditionsSatisfiedAssumption =
-  '最大点は効果の発動条件を満たしている前提で計算しています。発動回数の上限と行動の排他制約は維持します'
+const conditionsSatisfiedAssumption = '最大点は効果の発動条件を満たしている前提で計算しています'
 
-const resourcesAvailableAssumption =
-  'Pポイント・体力の不足は考慮せず、設定された行動・交換回数をすべて実行可能として計算しています'
+const resourcesAvailableAssumption = 'Pポイント・体力の不足は考慮していません'
 
 export function getScoreAssumptions(
   card: SupportCard,
@@ -27,14 +24,10 @@ export function getScoreAssumptions(
     ) ||
     card.effects.produce_item?.some((effect) => effect.trigger.kind === 'keyword_card_acquire')
   ) {
-    notes.push(
-      '種別・キーワード・レアリティ条件付きのスキルカード獲得時効果は、条件ごとに育成全体で最大16枚まで数えます。固有上限やSSRのプラン別上限が小さい場合はそちらを優先します',
-    )
+    notes.push('条件付きのスキルカード獲得時効果は、条件ごとに育成全体で最大16枚まで数えます')
   }
   if (card.tag === 'skill') {
-    notes.push(
-      '付属スキルカードは基本的に強化済みを1枚獲得する前提です。獲得時効果を発動し、強化時効果は発動しません',
-    )
+    notes.push('サポートイベントによるスキルカードは基本的に強化済みを1枚獲得する前提です')
   }
   if (
     card.effects.support_ability.some(

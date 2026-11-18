@@ -2,13 +2,6 @@
   max-width: 960px;
   padding-top: 24px;
 }
-.other-nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 20px;
-  margin: 12px 0 24px;
-  font-size: 0.85rem;
-}
 .other-workspace a {
   color: #17695e;
   text-underline-offset: 3px;
@@ -17,14 +10,57 @@
 .other-workspace a:hover {
   color: #104a42;
 }
-.other-workspace section {
+.other-section {
   scroll-margin-top: calc(var(--site-header-height, 80px) + 16px);
+  margin: 12px 0;
+  border: 1px solid #d2e5e8;
   border-radius: 8px;
+  background: white;
+}
+.other-section > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 48px;
+  padding: 14px 20px;
+  border-radius: 8px;
+  color: #245c55;
+  cursor: pointer;
+  list-style: none;
+}
+.other-section > summary::-webkit-details-marker {
+  display: none;
+}
+.other-section > summary::after {
+  content: '';
+  flex: 0 0 8px;
+  width: 8px;
+  height: 8px;
+  margin-right: 3px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+}
+.other-section[open] > summary::after {
+  transform: rotate(225deg);
+}
+.other-section > summary:hover {
+  background: #f1f7f5;
+}
+.other-section > summary:focus-visible {
+  outline: 2px solid #32736b;
+  outline-offset: 3px;
+}
+.other-section[open] > summary {
+  border-bottom: 1px solid #dbe7e5;
+  border-radius: 8px 8px 0 0;
+}
+.other-section-content {
+  padding: 6px 20px 16px;
 }
 .other-workspace h3 {
-  margin: 0 0 16px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #dbe7e5;
+  margin: 0;
   font-size: 1.05rem;
 }
 .other-workspace h4 {
@@ -61,7 +97,10 @@
   .other-workspace {
     padding: 16px 12px 28px;
   }
-  .other-workspace section {
-    padding: 18px 16px;
+  .other-section > summary {
+    padding: 14px 16px;
+  }
+  .other-section-content {
+    padding: 6px 16px 14px;
   }
 }
