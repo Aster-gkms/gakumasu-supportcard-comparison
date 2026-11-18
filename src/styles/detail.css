@@ -78,6 +78,9 @@
 .card-detail-header > button {
   flex-shrink: 0;
 }
+.detail-close-icon {
+  display: none;
+}
 .card-overview.has-image {
   display: grid;
   grid-template-columns: minmax(0, max-content) minmax(0, 250px);
@@ -385,6 +388,7 @@
   font-size: 0.85rem;
 }
 .limit-selector {
+  --selected-limit: 0;
   position: relative;
   isolation: isolate;
   display: grid;
@@ -477,16 +481,104 @@
   }
 }
 @media (max-width: 600px) {
+  .detail-dialog {
+    width: calc(100% - 16px);
+    max-width: calc(100% - 16px);
+    max-height: calc(100dvh - 16px);
+  }
+  .card-detail {
+    padding: 12px;
+  }
+  .card-detail-header {
+    position: relative;
+    display: block;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+  }
+  .card-overview,
+  .card-overview.has-image {
+    display: grid;
+    grid-template-columns: max-content max-content minmax(0, 1fr);
+    align-items: center;
+    gap: 8px;
+  }
+  .card-overview-info,
+  .card-summary {
+    display: contents;
+  }
+  .card-overview-info > .heading {
+    grid-area: 1 / 1 / 2 / -1;
+    min-height: 36px;
+    padding-right: 44px;
+  }
+  #card-detail-title {
+    font-size: 1rem;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+  }
+  .card-summary-identity:nth-child(1) {
+    grid-area: 2 / 1 / 3 / 2;
+  }
+  .card-summary-identity:nth-child(2) {
+    grid-area: 2 / 2 / 3 / 3;
+  }
+  .card-summary-identity:nth-child(3) {
+    grid-area: 2 / 3 / 3 / -1;
+  }
+  .card-summary-identity dt {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  .card-summary > div {
+    grid-column: 1 / -1;
+  }
+  .card-summary .card-summary-event {
+    grid-area: 3 / 3 / 4 / -1;
+  }
+  .card-overview:not(.has-image) .card-summary-event {
+    grid-column: 1 / -1;
+  }
+  .card-summary dd {
+    font-size: 0.8rem;
+  }
+  .card-summary dt {
+    font-size: 0.7rem;
+  }
+  .card-overview > .card-illustration {
+    grid-area: 3 / 1 / 4 / 3;
+    max-height: 56px;
+    border-radius: 4px;
+  }
+  .card-detail-header > .detail-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    font-size: 1.5rem;
+    line-height: 1;
+  }
+  .detail-close-label {
+    display: none;
+  }
+  .detail-close-icon {
+    display: inline;
+  }
   .attachment-body.has-image {
     grid-template-columns: minmax(0, 1fr) 48px;
     gap: 8px;
   }
   .skill-card-illustration {
     width: 48px;
-  }
-  .card-overview.has-image {
-    grid-template-columns: minmax(0, 1fr) minmax(80px, 30%);
-    gap: 12px;
   }
   .produce-item-effect:has(> .produce-item-illustration) {
     grid-template-columns: minmax(0, 1fr) 48px;

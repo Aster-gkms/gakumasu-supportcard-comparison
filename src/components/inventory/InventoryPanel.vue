@@ -13,6 +13,8 @@ import {
 } from '../../inventory/inventory'
 import OwnershipSelector from './OwnershipSelector.vue'
 import CardFilter from '../list/CardFilter.vue'
+import CollapsibleFilters from '../list/CollapsibleFilters.vue'
+import { summarizeFilters } from '../list/filterSummary'
 import StatusBadge from '../common/StatusBadge.vue'
 import RarityBadge from '../common/RarityBadge.vue'
 
@@ -35,6 +37,16 @@ const types = ref<string[]>([])
 const creator = ref<string[]>([])
 const ownership = ref<string[]>([])
 const limits = ref<string[]>([])
+const activeFilterLabels = computed(() => {
+  const groups = [
+    { label: 'レアリティ', selected: rarities.value, options: cardFilterOptions.rarity },
+    { label: 'タイプ', selected: types.value, options: cardFilterOptions.type },
+    { label: '制作者セレクト', selected: creator.value, options: cardFilterOptions.creator },
+    { label: '所持', selected: ownership.value, options: cardFilterOptions.ownership },
+    { label: '凸数', selected: limits.value, options: cardFilterOptions.limits },
+  ]
+  return summarizeFilters(groups)
+})
 const bulkLimit = ref<InventoryLimit>(4)
 const importError = ref('')
 const preview = ref<ReturnType<typeof parseInventory> | null>(null)
@@ -168,7 +180,7 @@ function applyImport() {
         </button>
       </div>
     </div>
-    <p class="note">
+    <p class="note inventory-intro">
       利用者に応じた凸状況を設定できます。変更はこのブラウザに自動保存されます。別の端末へは、ファイルのエクスポート・インポートで移行できます。
     </p>
     <input
@@ -250,37 +262,46 @@ function applyImport() {
         placeholder="名前の一部を入力"
       />
     </div>
-    <div class="score-controls inventory-filters">
+    <CollapsibleFilters
+      class="inventory-filters"
+      controls="inventory-filter-rarity inventory-filter-type inventory-filter-creator inventory-filter-ownership inventory-filter-limits"
+      :summary="activeFilterLabels"
+    >
       <CardFilter
+        id="inventory-filter-rarity"
         v-model="rarities"
         label="レアリティ"
         :options="cardFilterOptions.rarity"
         badge-type="rarity"
       />
       <CardFilter
+        id="inventory-filter-type"
         v-model="types"
         label="タイプ"
         :options="cardFilterOptions.type"
         badge-type="type"
       />
       <CardFilter
+        id="inventory-filter-creator"
         v-model="creator"
         label="制作者セレクト"
         :options="cardFilterOptions.creator"
         single
       />
       <CardFilter
+        id="inventory-filter-ownership"
         v-model="ownership"
         label="所持"
         :options="cardFilterOptions.ownership"
         single
       />
       <CardFilter
+        id="inventory-filter-limits"
         v-model="limits"
         label="凸数"
         :options="cardFilterOptions.limits"
       />
-    </div>
+    </CollapsibleFilters>
     <div class="inventory-bulk">
       <span>表示中の{{ filtered.length }}枚を</span
       ><OwnershipSelector

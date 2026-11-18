@@ -18,6 +18,8 @@ import StatusBadge from '../common/StatusBadge.vue'
 import RarityBadge from '../common/RarityBadge.vue'
 import LimitSelector from '../common/LimitSelector.vue'
 import CardFilter from '../list/CardFilter.vue'
+import CollapsibleFilters from '../list/CollapsibleFilters.vue'
+import { summarizeFilters } from '../list/filterSummary'
 import ActiveConditionsSummary from '../training/ActiveConditionsSummary.vue'
 
 const props = defineProps<{
@@ -36,6 +38,11 @@ const scoring = props.scoring
 const comparisonMode = defineModel<'fixed' | 'owned'>('mode', { required: true })
 const scoringLimit = defineModel<number>('limit', { required: true })
 type ComparisonSortKey = 'name' | 'total' | 'attachment'
+const mobileSortOptions: { key: ComparisonSortKey; label: string }[] = [
+  { key: 'total', label: '点数' },
+  { key: 'name', label: '名前' },
+  { key: 'attachment', label: '付属物名' },
+]
 const query = ref('')
 const selectedOwnership = ref<string[]>([])
 const sortKey = ref<ComparisonSortKey>('total')
@@ -58,6 +65,21 @@ const filterGroups: {
   { key: 'plan', label: 'プラン', options: cardFilterOptions.plan },
   { key: 'tag', label: 'サポートイベント', options: cardFilterOptions.tag },
 ]
+const activeFilterLabels = computed(() => {
+  const labels = summarizeFilters([
+    ...filterGroups.map((group) => ({ ...group, selected: selectedFilters.value[group.key] })),
+    { label: 'SP補正', selected: selectedSpRate.value, options: cardFilterOptions.spRate },
+    {
+      selected: selectedCreatorFilter.value,
+      options: [{ key: 'selected', label: '制作者セレクトのみ' }],
+    },
+    { selected: selectedOwnership.value, options: cardFilterOptions.ownership },
+  ])
+  if (comparisonMode.value === 'fixed') {
+    labels.unshift(`凸数：${scoringLimit.value}凸`)
+  }
+  return labels
+})
 const baseTableColumns = [
   { key: 'name', label: 'カード名' },
   { key: 'total', label: '最大点' },
@@ -210,7 +232,11 @@ function selectCard(card: SupportCard) {
             placeholder="名前の一部を入力"
           />
         </div>
-        <div class="score-controls">
+        <CollapsibleFilters
+          class="comparison-score-controls"
+          controls="comparison-filter-rarity comparison-filter-type comparison-filter-plan comparison-filter-limit comparison-filter-tag comparison-filter-sp-rate comparison-filter-creator comparison-filter-ownership"
+          :summary="activeFilterLabels"
+        >
           <div
             v-for="group in filterGroups"
             :key="group.key"
@@ -218,6 +244,7 @@ function selectCard(card: SupportCard) {
             :class="{ 'plan-limit-group': group.key === 'plan' }"
           >
             <CardFilter
+              :id="`comparison-filter-${group.key}`"
               v-model="selectedFilters[group.key]"
               :label="group.label"
               :options="group.options"
@@ -226,6 +253,7 @@ function selectCard(card: SupportCard) {
             />
             <div
               v-if="group.key === 'plan'"
+              id="comparison-filter-limit"
               class="score-control comparison-limit-slot"
               :class="{ 'is-hidden': comparisonMode === 'owned' }"
               :inert="comparisonMode === 'owned'"
@@ -245,6 +273,7 @@ function selectCard(card: SupportCard) {
             </div>
           </div>
           <CardFilter
+            id="comparison-filter-sp-rate"
             v-model="selectedSpRate"
             label="SPレッスン発生率補正"
             :options="cardFilterOptions.spRate"
@@ -252,6 +281,7 @@ function selectCard(card: SupportCard) {
             data-filter="sp-rate"
           />
           <CardFilter
+            id="comparison-filter-creator"
             v-model="selectedCreatorFilter"
             label="制作者セレクト"
             :options="[{ key: 'selected', label: `セレクトのみ（${creatorCardIds.size}枚）` }]"
@@ -259,13 +289,14 @@ function selectCard(card: SupportCard) {
             data-filter="creator-selection"
           />
           <CardFilter
+            id="comparison-filter-ownership"
             v-model="selectedOwnership"
             label="所持"
             :options="cardFilterOptions.ownership"
             single
             data-filter="ownership"
           />
-        </div>
+        </CollapsibleFilters>
         <p
           v-if="comparisonMode === 'owned'"
           class="note"
@@ -286,18 +317,41 @@ function selectCard(card: SupportCard) {
           {{ scoring.errors.value.worker }}
         </p>
         <p role="status">{{ filteredCards.length }}件 / 全{{ cards.length }}件</p>
-        <div class="table-scroll">
-          <table :class="{ 'has-owned-limit': comparisonMode === 'owned' }">
+        <div
+          class="comparison-mobile-sort"
+          role="group"
+          aria-label="カード一覧の並べ替え"
+        >
+          <span>並べ替え</span>
+          <button
+            v-for="option in mobileSortOptions"
+            :key="option.key"
+            type="button"
+            :aria-pressed="sortKey === option.key"
+            :aria-label="`${option.label}を${nextSortLabel(option.key)}に並べ替え`"
+            @click="setSort(option.key)"
+          >
+            {{ option.label }}
+            <span aria-hidden="true">{{ headerArrow(option.key) }}</span>
+          </button>
+        </div>
+        <div class="table-scroll comparison-table-scroll">
+          <table
+            :class="{ 'has-owned-limit': comparisonMode === 'owned' }"
+            role="table"
+          >
             <caption class="sr-only">
               サポートカードの基本情報
             </caption>
-            <thead>
-              <tr>
+            <thead role="rowgroup">
+              <tr role="row">
                 <th
                   v-for="column in tableColumns"
                   :key="column.key"
                   :data-column="column.key"
                   scope="col"
+                  role="columnheader"
+                  :aria-label="column.label"
                   :aria-sort="
                     column.key === 'name' || column.key === 'total' || column.key === 'attachment'
                       ? columnSort(column.key)
@@ -320,19 +374,26 @@ function selectCard(card: SupportCard) {
                 </th>
               </tr>
             </thead>
-            <tbody>
+            <tbody role="rowgroup">
               <tr
                 v-for="card in displayedCards"
                 :key="card.id"
+                class="comparison-card-row"
+                role="row"
               >
                 <td
                   v-if="comparisonMode === 'owned'"
                   class="owned-limit-cell"
                   data-column="owned-limit"
+                  role="cell"
                 >
+                  <span class="comparison-mobile-label">所持</span>
                   {{ unownedComparison(card.id) ? '未所持' : `${limitFor(card.id)}凸` }}
                 </td>
-                <td data-column="name">
+                <td
+                  data-column="name"
+                  role="cell"
+                >
                   <button
                     :id="`card-${card.id}`"
                     type="button"
@@ -357,6 +418,7 @@ function selectCard(card: SupportCard) {
                 <td
                   class="score-cell"
                   data-column="total"
+                  role="cell"
                 >
                   <span v-if="unownedComparison(card.id)">未所持</span>
                   <template v-else-if="scoreFor(card.id)"
@@ -368,31 +430,65 @@ function selectCard(card: SupportCard) {
                       : '計算待ち'
                   }}</span>
                 </td>
-                <td data-column="rarity">
+                <td
+                  data-column="rarity"
+                  role="cell"
+                >
                   <RarityBadge :rarity="card.rarity" />
                 </td>
                 <td
                   class="card-level"
                   data-column="level"
+                  role="cell"
                 >
                   {{
                     unownedComparison(card.id)
                       ? '—'
                       : `Lv.${supportCardMaxLevel(card.rarity, limitFor(card.id))}`
                   }}
+                  <span class="comparison-mobile-limit">
+                    ・{{ unownedComparison(card.id) ? '未所持' : `${limitFor(card.id)}凸` }}・{{
+                      planLabels[card.plan]
+                    }}
+                  </span>
                 </td>
-                <td data-column="type"><StatusBadge :kind="card.type" /></td>
-                <td data-column="plan">{{ planLabels[card.plan] }}</td>
-                <td data-column="tag">{{ tagLabels[card.tag] }}</td>
+                <td
+                  data-column="type"
+                  role="cell"
+                >
+                  <StatusBadge :kind="card.type" />
+                </td>
+                <td
+                  data-column="plan"
+                  role="cell"
+                >
+                  {{ planLabels[card.plan] }}
+                </td>
+                <td
+                  data-column="tag"
+                  role="cell"
+                >
+                  {{ tagLabels[card.tag] }}
+                </td>
                 <td
                   class="attachment-name-cell"
                   data-column="attachment"
+                  role="cell"
                 >
+                  <span class="comparison-mobile-label">{{ tagLabels[card.tag] }}：</span>
                   {{ cardAttachmentName(card) || '—' }}
                 </td>
               </tr>
-              <tr v-if="displayedCards.length === 0">
-                <td :colspan="tableColumns.length">該当するカードはありません。</td>
+              <tr
+                v-if="displayedCards.length === 0"
+                role="row"
+              >
+                <td
+                  :colspan="tableColumns.length"
+                  role="cell"
+                >
+                  該当するカードはありません。
+                </td>
               </tr>
             </tbody>
           </table>

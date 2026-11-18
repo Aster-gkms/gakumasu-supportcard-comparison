@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { cardFilterOptions, filterCardList } from '../../data/cardFilters'
-import { computed, onMounted, onBeforeUnmount, ref, watch } from 'vue'
+import { computed, nextTick, onMounted, onBeforeUnmount, ref, watch } from 'vue'
 import { planLabels, sortCards, typeLabels, type SupportCard } from '../../data/cards'
 import { cardThumbnailUrl } from '../../data/cardThumbnails'
 import type { Inventory } from '../../inventory/inventory'
@@ -17,6 +17,8 @@ import { useDeck } from '../../deck/useDeck'
 import type { ScoreService } from '../../scoring/runtime/useScores'
 import { scoreTypes } from '../../scoring/scoreMath'
 import CardFilter from '../list/CardFilter.vue'
+import CollapsibleFilters from '../list/CollapsibleFilters.vue'
+import { summarizeFilters } from '../list/filterSummary'
 import StatusBadge from '../common/StatusBadge.vue'
 import RarityBadge from '../common/RarityBadge.vue'
 import LimitSelector from '../common/LimitSelector.vue'
@@ -42,18 +44,67 @@ const emit = defineEmits<{
 const { deck, error } = useDeck(props.cards)
 const scoring = props.scoring
 const activeSlot = ref(0)
+const summaryExpanded = ref(false)
 const pinnedSummary = ref<HTMLElement | null>(null)
 const pinnedHeight = ref(0)
+const slotNames = ref<HTMLElement[]>([])
+function measureSlotNames() {
+  for (const element of slotNames.value) {
+    if (element.clientWidth === 0) {
+      continue
+    }
+    const text = element.querySelector<HTMLElement>('.deck-slot-name-text')
+    element.classList.toggle(
+      'is-truncated',
+      Boolean(text && text.scrollWidth > element.clientWidth),
+    )
+  }
+}
+watch(
+  () => deck.value.slots.map((slot) => slot?.cardId),
+  async () => {
+    await nextTick()
+    measureSlotNames()
+  },
+)
 let pinnedObserver: ResizeObserver | undefined
 onMounted(() => {
   pinnedObserver = new ResizeObserver(() => {
     pinnedHeight.value = pinnedSummary.value?.getBoundingClientRect().height ?? 0
+    measureSlotNames()
   })
   if (pinnedSummary.value) {
     pinnedObserver.observe(pinnedSummary.value)
   }
+  for (const element of slotNames.value) {
+    pinnedObserver.observe(element)
+  }
 })
 onBeforeUnmount(() => pinnedObserver?.disconnect())
+async function toggleSummary() {
+  const pinnedBottom = pinnedSummary.value?.getBoundingClientRect().bottom ?? 0
+  const anchor = Array.from(document.querySelectorAll<HTMLElement>('.deck-candidate-card')).find(
+    (element) => {
+      const rect = element.getBoundingClientRect()
+      return rect.bottom > pinnedBottom && rect.top < window.innerHeight
+    },
+  )
+  const anchorOffset = anchor ? anchor.getBoundingClientRect().top - pinnedBottom : 0
+  summaryExpanded.value = !summaryExpanded.value
+  await nextTick()
+  await new Promise<void>((resolve) => requestAnimationFrame(() => resolve()))
+  if (
+    props.active &&
+    anchor &&
+    anchor.isConnected &&
+    pinnedSummary.value &&
+    anchor.getClientRects().length > 0
+  ) {
+    const newOffset =
+      anchor.getBoundingClientRect().top - pinnedSummary.value.getBoundingClientRect().bottom
+    window.scrollBy(0, newOffset - anchorOffset)
+  }
+}
 const dragOverSlot = ref<number | null>(null)
 const placementError = ref('')
 const templateError = ref('')
@@ -95,6 +146,16 @@ const types = ref<string[]>([])
 const ownership = ref<string[]>([])
 const creator = ref<string[]>([])
 const spRate = ref<string[]>([])
+const activeFilterLabels = computed(() => {
+  const groups = [
+    { label: 'レアリティ', selected: rarities.value, options: cardFilterOptions.rarity },
+    { label: 'タイプ', selected: types.value, options: cardFilterOptions.type },
+    { label: 'SP補正', selected: spRate.value, options: cardFilterOptions.spRate },
+    { label: '所持', selected: ownership.value, options: cardFilterOptions.ownership },
+    { label: '制作者セレクト', selected: creator.value, options: cardFilterOptions.creator },
+  ]
+  return summarizeFilters(groups)
+})
 const candidateSort = ref<'name' | 'score'>('name')
 const cardsById = new Map(props.cards.map((card) => [card.id, card]))
 const entries = computed(() =>
@@ -242,7 +303,7 @@ function drop(event: DragEvent, index: number) {
       <h2>サポート編成</h2>
       <span>{{ equipped.size }} / 6枚</span>
     </div>
-    <p class="note">
+    <p class="note deck-intro">
       実際に編成を組んだ場合の点数やSP率を確認できます。カード一覧には、所持状況タブで設定した凸数が反映されます。未所持の場合はデフォルトで4凸扱いになります。
     </p>
     <div class="deck-plan-control">
@@ -318,6 +379,7 @@ function drop(event: DragEvent, index: number) {
     <div
       ref="pinnedSummary"
       class="deck-pinned-summary"
+      :class="{ 'is-collapsed': !summaryExpanded }"
     >
       <div
         class="deck-totals"
@@ -350,6 +412,16 @@ function drop(event: DragEvent, index: number) {
             >
           </div>
         </div>
+        <button
+          type="button"
+          class="deck-summary-toggle"
+          :aria-expanded="summaryExpanded"
+          aria-controls="deck-slots"
+          @click="toggleSummary"
+        >
+          {{ summaryExpanded ? '縮小' : '展開' }}
+          <span aria-hidden="true">{{ summaryExpanded ? '▲' : '▼' }}</span>
+        </button>
       </div>
       <p
         v-if="summary.incomplete"
@@ -358,6 +430,7 @@ function drop(event: DragEvent, index: number) {
         一部のカードに計算未対応の効果があります。合計は計算済みの効果のみです。
       </p>
       <div
+        id="deck-slots"
         class="deck-slots"
         aria-label="6枚の編成枠"
       >
@@ -393,7 +466,12 @@ function drop(event: DragEvent, index: number) {
               class="deck-slot-empty"
               >＋<small>カードをセット</small></span
             >
-            <span class="deck-slot-name">{{ entry ? entry.card.name : '空き枠' }}</span>
+            <span
+              ref="slotNames"
+              class="deck-slot-name"
+            >
+              <span class="deck-slot-name-text">{{ entry ? entry.card.name : '空き枠' }}</span>
+            </span>
           </button>
           <template v-if="entry">
             <button
@@ -467,20 +545,27 @@ function drop(event: DragEvent, index: number) {
         placeholder="名前の一部を入力"
       />
     </div>
-    <div class="score-controls deck-filters">
+    <CollapsibleFilters
+      class="deck-filters"
+      controls="deck-filter-rarity deck-filter-type deck-filter-sp-rate deck-filter-ownership deck-filter-creator"
+      :summary="activeFilterLabels"
+    >
       <CardFilter
+        id="deck-filter-rarity"
         v-model="rarities"
         label="レアリティ"
         :options="cardFilterOptions.rarity"
         badge-type="rarity"
       />
       <CardFilter
+        id="deck-filter-type"
         v-model="types"
         label="タイプ"
         :options="cardFilterOptions.type"
         badge-type="type"
       />
       <CardFilter
+        id="deck-filter-sp-rate"
         v-model="spRate"
         label="SPレッスン発生率補正"
         :options="cardFilterOptions.spRate"
@@ -488,18 +573,20 @@ function drop(event: DragEvent, index: number) {
         data-filter="sp-rate"
       />
       <CardFilter
+        id="deck-filter-ownership"
         v-model="ownership"
         label="所持"
         :options="cardFilterOptions.ownership"
         single
       />
       <CardFilter
+        id="deck-filter-creator"
         v-model="creator"
         label="制作者セレクト"
         :options="cardFilterOptions.creator"
         single
       />
-    </div>
+    </CollapsibleFilters>
     <div class="deck-candidates-toolbar">
       <h3 class="deck-candidates-heading">
         カード一覧 <small>{{ candidates.length }}枚</small>

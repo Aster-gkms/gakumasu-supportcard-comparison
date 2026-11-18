@@ -309,7 +309,12 @@ const sections = computed(() => {
                 >＋</span
               >
               <span class="score-equation-term">
-                <span class="score-equation-label">{{ section.title }}</span>
+                <span class="score-equation-label">
+                  <span class="score-equation-label-full">{{ section.title }}</span>
+                  <span class="score-equation-label-short">{{
+                    section.title.replace('サポート', '')
+                  }}</span>
+                </span>
                 <strong class="score-equation-value">{{ section.total }}<small>点</small></strong>
               </span>
             </span>
@@ -434,7 +439,7 @@ const sections = computed(() => {
             <p v-else>加算なし</p>
           </section>
           <p class="note">
-            他のサポートカードによる追加の獲得・強化などは含めていません。サポートイベントは有利なタイミングで各1回発生する前提です。
+            他のサポートカードによる追加の獲得・強化などは含めていません。サポートイベントは最も有利なタイミングで各1回発生する前提です。
           </p>
         </div>
       </details>
