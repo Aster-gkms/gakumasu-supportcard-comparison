@@ -168,8 +168,9 @@
     font-size: 0.8rem;
     overflow-wrap: anywhere;
   }
-  .collapsible-filters:not(.is-filters-open)
-    :is(.card-filter, .comparison-limit-slot, .ability-filter) {
+  .collapsible-filters:not(.is-filters-open) .card-filter,
+  .collapsible-filters:not(.is-filters-open) .comparison-limit-slot,
+  .collapsible-filters:not(.is-filters-open) .ability-filter {
     display: none;
   }
   .comparison-mobile-sort {
@@ -278,8 +279,9 @@
     height: 24px;
     font-size: 0.65rem;
   }
-  .comparison-card-row
-    > :is([data-column='owned-limit'], [data-column='tag'], [data-column='plan']) {
+  .comparison-card-row > [data-column='owned-limit'],
+  .comparison-card-row > [data-column='tag'],
+  .comparison-card-row > [data-column='plan'] {
     display: none;
   }
   .comparison-card-row > [data-column='attachment'] {
