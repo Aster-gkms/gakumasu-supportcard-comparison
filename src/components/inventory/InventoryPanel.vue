@@ -14,6 +14,7 @@ import {
 import OwnershipSelector from './OwnershipSelector.vue'
 import CardFilter from '../list/CardFilter.vue'
 import CollapsibleFilters from '../list/CollapsibleFilters.vue'
+import AbilityFilter from '../list/AbilityFilter.vue'
 import { summarizeFilters } from '../list/filterSummary'
 import StatusBadge from '../common/StatusBadge.vue'
 import RarityBadge from '../common/RarityBadge.vue'
@@ -32,6 +33,8 @@ const emit = defineEmits<{
   open: [card: SupportCard]
 }>()
 const query = ref('')
+const abilities = ref<string[]>([])
+const abilityMode = ref<'any' | 'all'>('any')
 const rarities = ref<string[]>([])
 const types = ref<string[]>([])
 const creator = ref<string[]>([])
@@ -45,7 +48,13 @@ const activeFilterLabels = computed(() => {
     { label: '所持', selected: ownership.value, options: cardFilterOptions.ownership },
     { label: '凸数', selected: limits.value, options: cardFilterOptions.limits },
   ]
-  return summarizeFilters(groups)
+  const labels = summarizeFilters(groups)
+  if (abilities.value.length) {
+    labels.push(
+      `アビリティ：${abilities.value.length}件・${abilityMode.value === 'all' ? 'すべて' : 'いずれか'}`,
+    )
+  }
+  return labels
 })
 const bulkLimit = ref<InventoryLimit>(4)
 const importError = ref('')
@@ -64,6 +73,8 @@ const filtered = computed(() =>
       ownership: ownership.value,
       creatorOnly: creator.value.length > 0,
       limits: limits.value,
+      abilities: abilities.value,
+      abilityMode: abilityMode.value,
     },
     props.inventory,
     props.creatorIds,
@@ -104,10 +115,11 @@ async function readFile(event: Event) {
   importMode.value = 'merge'
   importError.value = ''
   preview.value = null
+  if (file.size > 2 * 1024 * 1024) {
+    importError.value = 'ファイルが大きすぎます。2MB以下のJSONを選択してください。'
+    return
+  }
   try {
-    if (file.size > 2 * 1024 * 1024) {
-      throw new Error('ファイルが大きすぎます。2MB以下のJSONを選択してください。')
-    }
     const parsed = parseInventory(await file.text(), props.cards)
     if (generation === readGeneration) {
       preview.value = parsed
@@ -263,8 +275,10 @@ function applyImport() {
       />
     </div>
     <CollapsibleFilters
+      v-slot="{ showResults }"
+      results-id="inventory-filter-results"
       class="inventory-filters"
-      controls="inventory-filter-rarity inventory-filter-type inventory-filter-creator inventory-filter-ownership inventory-filter-limits"
+      controls="inventory-filter-rarity inventory-filter-type inventory-filter-creator inventory-filter-ownership inventory-filter-limits inventory-filter-abilities"
       :summary="activeFilterLabels"
     >
       <CardFilter
@@ -301,8 +315,20 @@ function applyImport() {
         label="凸数"
         :options="cardFilterOptions.limits"
       />
+      <AbilityFilter
+        id="inventory-filter-abilities"
+        v-model="abilities"
+        v-model:mode="abilityMode"
+        :cards="cards"
+        :result-count="filtered.length"
+        @show-results="showResults"
+      />
     </CollapsibleFilters>
-    <div class="inventory-bulk">
+    <div
+      id="inventory-filter-results"
+      class="inventory-bulk filter-results-anchor"
+      tabindex="-1"
+    >
       <span>表示中の{{ filtered.length }}枚を</span
       ><OwnershipSelector
         label="一括変更する所持状況"

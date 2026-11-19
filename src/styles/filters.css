@@ -128,6 +128,13 @@
 .filter-toggle-row {
   display: none;
 }
+.filter-results-anchor {
+  scroll-margin-top: calc(var(--site-header-height, 60px) + var(--deck-pinned-height, 0px) + 12px);
+}
+.filter-results-anchor:focus-visible {
+  outline: 2px solid #287579;
+  outline-offset: 2px;
+}
 .comparison-mobile-sort,
 .comparison-mobile-label,
 .comparison-mobile-limit {
@@ -161,7 +168,8 @@
     font-size: 0.8rem;
     overflow-wrap: anywhere;
   }
-  .collapsible-filters:not(.is-filters-open) :is(.card-filter, .comparison-limit-slot) {
+  .collapsible-filters:not(.is-filters-open)
+    :is(.card-filter, .comparison-limit-slot, .ability-filter) {
     display: none;
   }
   .comparison-mobile-sort {
@@ -210,7 +218,7 @@
   }
   .comparison-table-scroll .comparison-card-row {
     display: grid;
-    grid-template-columns: auto auto minmax(0, 1fr) auto;
+    grid-template-columns: auto auto minmax(0, 1fr) 4.5rem;
     align-items: center;
     gap: 8px 4px;
     padding: 12px;

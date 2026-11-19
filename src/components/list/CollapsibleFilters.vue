@@ -1,11 +1,22 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { nextTick, ref } from 'vue'
 
 defineProps<{
   controls: string
   summary: string[]
+  resultsId: string
 }>()
 const open = ref(false)
+
+async function showResults(resultsId: string) {
+  open.value = false
+  await nextTick()
+  const target = document.getElementById(resultsId)
+  if (target?.isConnected && target.getClientRects().length) {
+    target.focus({ preventScroll: true })
+    target.scrollIntoView({ block: 'start', behavior: 'instant' })
+  }
+}
 </script>
 
 <template>
@@ -26,6 +37,6 @@ const open = ref(false)
       </button>
       <p class="filter-summary">{{ summary.length ? summary.join(' ／ ') : '指定なし' }}</p>
     </div>
-    <slot />
+    <slot :show-results="() => showResults(resultsId)" />
   </div>
 </template>

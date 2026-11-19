@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref, watch, onBeforeUnmount, toRefs } from 'vue'
+import { computed, ref, shallowRef, watch, onBeforeUnmount, toRefs } from 'vue'
 import { cardFilterOptions, filterCardList, type CardFilterKey } from '../../data/cardFilters'
 import {
   planLabels,
@@ -19,6 +19,7 @@ import RarityBadge from '../common/RarityBadge.vue'
 import LimitSelector from '../common/LimitSelector.vue'
 import CardFilter from '../list/CardFilter.vue'
 import CollapsibleFilters from '../list/CollapsibleFilters.vue'
+import AbilityFilter from '../list/AbilityFilter.vue'
 import { summarizeFilters } from '../list/filterSummary'
 import ActiveConditionsSummary from '../training/ActiveConditionsSummary.vue'
 
@@ -41,9 +42,11 @@ type ComparisonSortKey = 'name' | 'total' | 'attachment'
 const mobileSortOptions: { key: ComparisonSortKey; label: string }[] = [
   { key: 'total', label: '点数' },
   { key: 'name', label: '名前' },
-  { key: 'attachment', label: '付属物名' },
+  { key: 'attachment', label: 'スキルカード名／Pアイテム名' },
 ]
 const query = ref('')
+const abilities = ref<string[]>([])
+const abilityMode = ref<'any' | 'all'>('any')
 const selectedOwnership = ref<string[]>([])
 const sortKey = ref<ComparisonSortKey>('total')
 const sortDirection = ref<SortDirection>('descending')
@@ -77,6 +80,11 @@ const activeFilterLabels = computed(() => {
   ])
   if (comparisonMode.value === 'fixed') {
     labels.unshift(`凸数：${scoringLimit.value}凸`)
+  }
+  if (abilities.value.length) {
+    labels.push(
+      `アビリティ：${abilities.value.length}件・${abilityMode.value === 'all' ? 'すべて' : 'いずれか'}`,
+    )
   }
   return labels
 })
@@ -148,6 +156,8 @@ const filteredCards = computed(() =>
       ownership: selectedOwnership.value,
       creatorOnly: selectedCreatorFilter.value.length > 0,
       spRate: selectedSpRate.value,
+      abilities: abilities.value,
+      abilityMode: abilityMode.value,
     },
     inventory.value,
     creatorCardIds.value,
@@ -159,24 +169,65 @@ const scoreNameCollator = new Intl.Collator('ja')
 const cardsByScoreTieOrder = computed(() =>
   [...filteredCards.value].sort((a, b) => scoreNameCollator.compare(a.name, b.name)),
 )
-const displayedCards = computed(() => {
-  if (sortKey.value !== 'total') {
-    return sortCards(filteredCards.value, sortKey.value, sortDirection.value)
-  }
-  const direction = sortDirection.value === 'ascending' ? -1 : 1
-  return cardsByScoreTieOrder.value
-    .map((card) => {
-      const score = scoreFor(card.id)
-      return { card, complete: Boolean(score?.complete), total: score?.total ?? -1 }
-    })
-    .sort((left, right) => {
-      if (left.complete !== right.complete) {
-        return left.complete ? -1 : 1
+const nonScoreOrder = computed(() =>
+  sortCards(
+    filteredCards.value,
+    sortKey.value === 'attachment' ? 'attachment' : 'name',
+    sortDirection.value,
+  ),
+)
+const scoreRows = computed(() =>
+  cardsByScoreTieOrder.value.map((card) => {
+    const score = scoreFor(card.id)
+    const error = scoring.errors.value[`${card.id}:${limitFor(card.id)}`]
+    return {
+      card,
+      complete: Boolean(score?.complete),
+      total: score?.total ?? -1,
+      waiting: !unownedComparison(card.id) && !score && !error && !scoring.errors.value.worker,
+    }
+  }),
+)
+const displayedCards = shallowRef<SupportCard[]>([])
+watch(
+  [scoreRows, sortKey, sortDirection],
+  ([rows, key, direction]) => {
+    let next: SupportCard[]
+    if (key !== 'total') {
+      next = nonScoreOrder.value
+    } else if (rows.some((row) => row.waiting)) {
+      // 計算中は既存の行順を保持し、絞り込みで追加されたカードだけ末尾へ置く。
+      const remaining = new Map(rows.map((row) => [row.card.id, row.card]))
+      next = []
+      for (const previous of displayedCards.value) {
+        const card = remaining.get(previous.id)
+        if (card) {
+          next.push(card)
+          remaining.delete(card.id)
+        }
       }
-      return (right.total - left.total) * direction
-    })
-    .map(({ card }) => card)
-})
+      next.push(...remaining.values())
+    } else {
+      // 探索未完の結果・エラー・未所持も待機から除き、返却が揃った時点で更新する。
+      const factor = direction === 'ascending' ? -1 : 1
+      next = [...rows]
+        .sort((left, right) => {
+          if (left.complete !== right.complete) {
+            return left.complete ? -1 : 1
+          }
+          return (right.total - left.total) * factor
+        })
+        .map((row) => row.card)
+    }
+    if (
+      next.length !== displayedCards.value.length ||
+      next.some((card, index) => card !== displayedCards.value[index])
+    ) {
+      displayedCards.value = next
+    }
+  },
+  { immediate: true },
+)
 watch([filteredCards, scoringLimit, comparisonMode, active, inventory], requestComparisonScores, {
   immediate: true,
 })
@@ -233,8 +284,10 @@ function selectCard(card: SupportCard) {
           />
         </div>
         <CollapsibleFilters
+          v-slot="{ showResults }"
+          results-id="comparison-filter-results"
           class="comparison-score-controls"
-          controls="comparison-filter-rarity comparison-filter-type comparison-filter-plan comparison-filter-limit comparison-filter-tag comparison-filter-sp-rate comparison-filter-creator comparison-filter-ownership"
+          controls="comparison-filter-rarity comparison-filter-type comparison-filter-plan comparison-filter-limit comparison-filter-tag comparison-filter-sp-rate comparison-filter-creator comparison-filter-ownership comparison-filter-abilities"
           :summary="activeFilterLabels"
         >
           <div
@@ -296,6 +349,14 @@ function selectCard(card: SupportCard) {
             single
             data-filter="ownership"
           />
+          <AbilityFilter
+            id="comparison-filter-abilities"
+            v-model="abilities"
+            v-model:mode="abilityMode"
+            :cards="cards"
+            :result-count="filteredCards.length"
+            @show-results="showResults"
+          />
         </CollapsibleFilters>
         <p
           v-if="comparisonMode === 'owned'"
@@ -316,7 +377,14 @@ function selectCard(card: SupportCard) {
         >
           {{ scoring.errors.value.worker }}
         </p>
-        <p role="status">{{ filteredCards.length }}件 / 全{{ cards.length }}件</p>
+        <p
+          id="comparison-filter-results"
+          class="filter-results-anchor"
+          tabindex="-1"
+          role="status"
+        >
+          {{ filteredCards.length }}件 / 全{{ cards.length }}件
+        </p>
         <div
           class="comparison-mobile-sort"
           role="group"
