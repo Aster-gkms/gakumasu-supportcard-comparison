@@ -7,6 +7,7 @@ import {
   type SupportCard,
 } from './cards'
 import type { Inventory } from '../inventory/inventory'
+import { matchesAbilities } from './abilityFilters'
 
 const labeledOptions = (labels: Record<string, string>) =>
   Object.entries(labels).map(([key, label]) => ({ key, label }))
@@ -34,6 +35,8 @@ type CardListFilters = Partial<
   Record<CardFilterKey | 'ownership' | 'spRate' | 'limits', readonly string[]>
 > & {
   creatorOnly?: boolean
+  abilities?: readonly string[]
+  abilityMode?: 'any' | 'all'
 }
 const includes = (selected: readonly string[] | undefined, value: string) =>
   !selected?.length || selected.includes(value)
@@ -55,6 +58,7 @@ export function filterCardList(
       includes(filters.ownership, limit === undefined ? 'unowned' : 'owned') &&
       includes(filters.limits, limit === undefined ? 'unowned' : String(limit)) &&
       (!filters.creatorOnly || creatorIds.has(card.id)) &&
+      matchesAbilities(card, filters.abilities, filters.abilityMode) &&
       (!filters.spRate?.length ||
         includes(filters.spRate, hasSpRateCorrection(card) ? 'has' : 'none'))
     )

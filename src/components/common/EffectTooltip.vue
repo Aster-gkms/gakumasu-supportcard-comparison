@@ -83,7 +83,9 @@ onBeforeUnmount(() => {
     class="calculation-info"
     @pointerenter="
       (event) => {
-        if (event.pointerType === 'mouse') openTooltip()
+        if (event.pointerType === 'mouse') {
+          openTooltip()
+        }
       }
     "
     @pointerleave="leaveTooltip"

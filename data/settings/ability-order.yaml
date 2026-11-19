@@ -1,0 +1,198 @@
+# サポートアビリティ検索の表示順。各カテゴリ内で、項目のブロックを上下に移動します。
+# カテゴリ自体の順序は src/data/abilityFilters.ts の abilityCategories に従います。
+# trigger / value_type / condition はカードYAMLの識別値（タイプ別triggerは接頭辞を除く）。
+
+# ステータス
+status:
+  # プロデュース開始時：ステータス上昇
+  - trigger: produce_start
+    value_type: status_add
+  # レッスン終了時：ステータス上昇
+  - trigger: lesson_end
+    value_type: status_add
+  # 通常レッスン終了時：ステータス上昇
+  - trigger: normal_end
+    value_type: status_add
+  # SPレッスン終了時：ステータス上昇
+  - trigger: sp_end
+    value_type: status_add
+  # SPレッスン終了時：ステータス上昇 / スキルカードを20枚以上所持
+  - trigger: sp_end
+    value_type: status_add
+    condition: デッキ>=20
+  # 試験・オーディション終了時：ステータス上昇
+  - trigger: exam_end
+    value_type: status_add
+  # 試験・オーディション終了時：ステータス上昇 / スキルカードを15枚以上所持
+  - trigger: exam_end
+    value_type: status_add
+    condition: デッキ>=15
+  # 授業・営業終了時：ステータス上昇
+  - trigger: class_end
+    value_type: status_add
+  # 活動支給・差し入れ選択時：ステータス上昇
+  - trigger: activity_supply
+    value_type: status_add
+  # おでかけ終了時：ステータス上昇
+  - trigger: outing_end
+    value_type: status_add
+  # 相談選択時：ステータス上昇
+  - trigger: consultation
+    value_type: status_add
+  # 相談でPドリンク交換時：ステータス上昇
+  - trigger: consultation_drink
+    value_type: status_add
+  # 相談でスキルカード交換後：ステータス上昇
+  - trigger: consultation_skill_acquire
+    value_type: status_add
+  # 特別指導開始時：ステータス上昇
+  - trigger: special_training
+    value_type: status_add
+  # スキルカードカスタマイズ時：ステータス上昇
+  - trigger: skill_custom
+    value_type: status_add
+  # 休む選択時：ステータス上昇
+  - trigger: rest
+    value_type: status_add
+  # スキルカード獲得時：ステータス上昇
+  - trigger: skill_acquire
+    value_type: status_add
+  # スキルカード獲得時：ステータス上昇 / 好調効果のスキルカードを8枚以上所持
+  - trigger: skill_acquire
+    value_type: status_add
+    condition: 所持している好調効果のスキルカード>=8
+  # スキルカード獲得時：ステータス上昇 / 集中効果のスキルカードを8枚以上所持
+  - trigger: skill_acquire
+    value_type: status_add
+    condition: 所持している集中効果のスキルカード>=8
+  # スキルカード獲得時：ステータス上昇 / 好印象効果のスキルカードを8枚以上所持
+  - trigger: skill_acquire
+    value_type: status_add
+    condition: 所持している好印象効果のスキルカード>=8
+  # スキルカード獲得時：ステータス上昇 / やる気効果のスキルカードを8枚以上所持
+  - trigger: skill_acquire
+    value_type: status_add
+    condition: 所持しているやる気効果のスキルカード>=8
+  # スキルカード獲得時：ステータス上昇 / 温存効果のスキルカードを8枚以上所持
+  - trigger: skill_acquire
+    value_type: status_add
+    condition: 所持している温存効果のスキルカード>=8
+  # スキルカード獲得時：ステータス上昇 / 全力効果のスキルカードを8枚以上所持
+  - trigger: skill_acquire
+    value_type: status_add
+    condition: 所持している全力効果のスキルカード>=8
+  # SSRスキルカード獲得時：ステータス上昇
+  - trigger: skill_ssr_acquire
+    value_type: status_add
+  # アクティブスキルカード獲得時：ステータス上昇
+  - trigger: active_acquire
+    value_type: status_add
+  # メンタルスキルカード獲得時：ステータス上昇
+  - trigger: mental_acquire
+    value_type: status_add
+  # 好調効果のスキルカード獲得時：ステータス上昇
+  - trigger: good_condition_acquire
+    value_type: status_add
+  # 集中効果のスキルカード獲得時：ステータス上昇
+  - trigger: concentrate_acquire
+    value_type: status_add
+  # 好印象効果のスキルカード獲得時：ステータス上昇
+  - trigger: good_impression_acquire
+    value_type: status_add
+  # やる気効果のスキルカード獲得時：ステータス上昇
+  - trigger: motivation_acquire
+    value_type: status_add
+  # 元気効果のスキルカード獲得時：ステータス上昇
+  - trigger: genki_acquire
+    value_type: status_add
+  # 温存効果のスキルカード獲得時：ステータス上昇
+  - trigger: conserve_acquire
+    value_type: status_add
+  # スキルカード強化時：ステータス上昇
+  - trigger: skill_enhance
+    value_type: status_add
+  # アクティブスキルカード強化時：ステータス上昇
+  - trigger: active_enhance
+    value_type: status_add
+  # メンタルスキルカード強化時：ステータス上昇
+  - trigger: mental_enhance
+    value_type: status_add
+  # スキルカード削除時：ステータス上昇
+  - trigger: skill_delete
+    value_type: status_add
+  # アクティブスキルカード削除時：ステータス上昇
+  - trigger: active_delete
+    value_type: status_add
+  # メンタルスキルカード削除時：ステータス上昇
+  - trigger: mental_delete
+    value_type: status_add
+  # スキルカードチェンジ時：ステータス上昇
+  - trigger: skill_change
+    value_type: status_add
+  # スキルカードチェンジ時：ステータス上昇 / 名前に「基本」を含むスキルカードが対象
+  - trigger: skill_change
+    value_type: status_add
+    condition: チェンジ対象が基本スキルカード
+  # Pドリンク獲得時：ステータス上昇
+  - trigger: p_drink_acquire
+    value_type: status_add
+  # Pアイテム獲得時：ステータス上昇
+  - trigger: p_item_acquire
+    value_type: status_add
+
+# SP・パラボ
+bonus:
+  # SPレッスン発生率の補正
+  - trigger: equip
+    value_type: sp_rate
+  # パラメータボーナス
+  - trigger: equip
+    value_type: param_bonus
+
+# 体力
+hp:
+  # 最大体力上昇
+  - trigger: equip
+    value_type: max_hp_add
+  # SPレッスン終了時：体力回復
+  - trigger: sp_end
+    value_type: hp_recovery
+  # 試験・オーディション終了時：体力回復
+  - trigger: exam_end
+    value_type: hp_recovery
+  # 活動支給・差し入れ選択時：体力回復
+  - trigger: activity_supply
+    value_type: hp_recovery
+
+# Pポイント
+point:
+  # プロデュース開始時：Pポイント加算
+  - trigger: produce_start
+    value_type: point_add
+  # レッスン終了時：Pポイント獲得量増加
+  - trigger: lesson_end
+    value_type: point_gain_boost
+  # SPレッスン終了時：Pポイント獲得量増加
+  - trigger: sp_end
+    value_type: point_gain_boost
+  # 相談のPドリンク割引
+  - trigger: equip
+    value_type: p_drink_discount
+
+# イベント補正
+event:
+  # サポートイベントのパラメータ上昇量増加
+  - trigger: equip
+    value_type: event_param_boost
+  # サポートイベント発生時：サポートイベントの体力回復量増加
+  - trigger: support_event
+    value_type: event_hp_boost
+  # サポートイベント発生時：サポートイベントの獲得Pポイント増加
+  - trigger: support_event
+    value_type: event_point_boost
+  # スキルカードサポート発生率の増加
+  - trigger: equip
+    value_type: support_rate_bonus
+
+# その他
+other: []

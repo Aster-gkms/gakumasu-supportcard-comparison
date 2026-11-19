@@ -609,7 +609,7 @@ support_cards:
           type: vo
           values: [ 8, 8, 8, 15, 15 ]
           max_count: 4
-          condition: deck>=20
+          condition: デッキ>=20
 
         - template: このサポートカードのイベントによるパラメータ上昇を{value}%増加
           value_type: event_param_boost
@@ -752,7 +752,7 @@ support_cards:
           type: da
           values: [ 8, 8, 8, 8, 15 ]
           max_count: 4
-          condition: deck>=20
+          condition: デッキ>=20
 
         - template: スキルカード獲得時、ダンス上昇+{value}
           value_type: status_add
@@ -1004,7 +1004,7 @@ support_cards:
           type: vi
           values: [ 8, 8, 8, 8, 15 ]
           max_count: 4
-          condition: deck>=20
+          condition: デッキ>=20
 
         - template: スキルカード獲得時、ビジュアル上昇+{value}
           value_type: status_add
@@ -1258,7 +1258,7 @@ support_cards:
           type: vi
           values: [ 8, 8, 8, 15, 15 ]
           max_count: 4
-          condition: deck>=20
+          condition: デッキ>=20
 
         - template: このサポートカードのイベントによるパラメータ上昇を{value}%増加
           value_type: event_param_boost
@@ -1870,7 +1870,7 @@ support_cards:
           type: vo
           values: [ 8, 15, 15, 15, 15 ]
           max_count: 4
-          condition: deck>=20
+          condition: デッキ>=20
 
         - template: このサポートカードのスキルカードサポート発生率を{value}%増加
           value_type: support_rate_bonus
@@ -1955,7 +1955,7 @@ support_cards:
           type: vi
           values: [ 8, 15, 15, 15, 15 ]
           max_count: 4
-          condition: deck>=20
+          condition: デッキ>=20
 
         - template: このサポートカードのスキルカードサポート発生率を{value}%増加
           value_type: support_rate_bonus
@@ -2185,7 +2185,7 @@ support_cards:
           type: vo
           values: [ 8, 15, 15, 15, 15 ]
           max_count: 4
-          condition: deck>=20
+          condition: デッキ>=20
 
         - template: このサポートカードのスキルカードサポート発生率を{value}%増加
           value_type: support_rate_bonus

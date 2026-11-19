@@ -791,7 +791,7 @@ support_cards:
           type: vi
           values: [ 26, 26, 26, 26, 37 ]
           max_count: 5
-          condition: deck>=15
+          condition: デッキ>=15
 
         - template: このサポートカードのイベントによるパラメータ上昇を{value}%増加
           value_type: event_param_boost
@@ -2073,7 +2073,7 @@ support_cards:
           type: vo
           values: [ 15, 15, 15, 21, 21 ]
           max_count: 4
-          condition: deck>=20
+          condition: デッキ>=20
 
         - template: スキルカード（SSR）獲得時、ボーカル上昇+{value}
           value_type: status_add
@@ -2186,7 +2186,7 @@ support_cards:
           type: da
           values: [ 15, 15, 21, 21, 21 ]
           max_count: 4
-          condition: deck>=20
+          condition: デッキ>=20
 
         - template: このサポートカードのスキルカードサポート発生率を{value}%増加
           value_type: support_rate_bonus
@@ -2278,7 +2278,7 @@ support_cards:
           type: vi
           values: [ 15, 15, 15, 15, 21 ]
           max_count: 4
-          condition: deck>=20
+          condition: デッキ>=20
 
         - template: このサポートカードのイベントによるパラメータ上昇を+{value}増加
           value_type: event_param_boost
@@ -2891,7 +2891,7 @@ support_cards:
           type: vi
           values: [ 15, 15, 21, 21, 21 ]
           max_count: 4
-          condition: deck>=20
+          condition: デッキ>=20
 
         - template: このサポートカードのレッスンサポート発生率を{value}%増加
           value_type: support_rate_bonus
@@ -3719,7 +3719,7 @@ support_cards:
           type: da
           values: [ 15, 15, 15, 15, 21 ]
           max_count: 4
-          condition: deck>=20
+          condition: デッキ>=20
 
         - template: このサポートカードのイベントによるパラメータ上昇を{value}%増加
           value_type: event_param_boost
@@ -5080,7 +5080,7 @@ support_cards:
           type: vo
           values: [ 15, 15, 15, 15, 21 ]
           max_count: 4
-          condition: deck>=20
+          condition: デッキ>=20
 
         - template: このサポートカードのイベントによるパラメータ上昇を{value}%増加
           value_type: event_param_boost
@@ -5148,7 +5148,7 @@ support_cards:
           type: vi
           values: [ 15, 15, 15, 21, 21 ]
           max_count: 4
-          condition: deck>=20
+          condition: デッキ>=20
 
         - template: スキルカードカスタマイズ時、ビジュアル上昇+{value}（プロデュース中6回）
           value_type: status_add

@@ -1,6 +1,5 @@
 // HIF共通の計算定義。日付は選抜初日を1とする通算日。
 // 入力の検証はconditions/、日程探索はhifSchedule.tsを参照。
-// 評価条件を変更して保存結果を再生成するときはruntime/revision.tsのcalculatorVersionも更新する。
 // 相談の交換数はconsultationOperations、日別の対応はconsultationScheduleを参照。
 
 export type LessonKind = 'normal' | 'sp'

@@ -224,7 +224,9 @@
   grid-column: 1 / -1;
   min-width: 0;
 }
-.card-effect-groups > :is(.produce-item-group, .effect-group-support_event) > h3 {
+.card-effect-groups > .produce-item-group > h3,
+.card-effect-groups > .effect-group-skill_card > h3,
+.card-effect-groups > .effect-group-support_event > h3 {
   margin-top: 0;
 }
 .card-effect-groups.has-attachment > .produce-item-group,

@@ -18,6 +18,7 @@ import type { ScoreService } from '../../scoring/runtime/useScores'
 import { scoreTypes } from '../../scoring/scoreMath'
 import CardFilter from '../list/CardFilter.vue'
 import CollapsibleFilters from '../list/CollapsibleFilters.vue'
+import AbilityFilter from '../list/AbilityFilter.vue'
 import { summarizeFilters } from '../list/filterSummary'
 import StatusBadge from '../common/StatusBadge.vue'
 import RarityBadge from '../common/RarityBadge.vue'
@@ -141,6 +142,8 @@ function applyTemplate(template: DeckTemplate) {
   }
 }
 const query = ref('')
+const abilities = ref<string[]>([])
+const abilityMode = ref<'any' | 'all'>('any')
 const rarities = ref<string[]>([])
 const types = ref<string[]>([])
 const ownership = ref<string[]>([])
@@ -154,7 +157,13 @@ const activeFilterLabels = computed(() => {
     { label: '所持', selected: ownership.value, options: cardFilterOptions.ownership },
     { label: '制作者セレクト', selected: creator.value, options: cardFilterOptions.creator },
   ]
-  return summarizeFilters(groups)
+  const labels = summarizeFilters(groups)
+  if (abilities.value.length) {
+    labels.push(
+      `アビリティ：${abilities.value.length}件・${abilityMode.value === 'all' ? 'すべて' : 'いずれか'}`,
+    )
+  }
+  return labels
 })
 const candidateSort = ref<'name' | 'score'>('name')
 const cardsById = new Map(props.cards.map((card) => [card.id, card]))
@@ -186,6 +195,8 @@ const candidates = computed(() =>
         ownership: ownership.value,
         creatorOnly: creator.value.length > 0,
         spRate: spRate.value,
+        abilities: abilities.value,
+        abilityMode: abilityMode.value,
       },
       props.inventory,
       props.creatorIds,
@@ -546,8 +557,10 @@ function drop(event: DragEvent, index: number) {
       />
     </div>
     <CollapsibleFilters
+      v-slot="{ showResults }"
+      results-id="deck-filter-results"
       class="deck-filters"
-      controls="deck-filter-rarity deck-filter-type deck-filter-sp-rate deck-filter-ownership deck-filter-creator"
+      controls="deck-filter-rarity deck-filter-type deck-filter-sp-rate deck-filter-ownership deck-filter-creator deck-filter-abilities"
       :summary="activeFilterLabels"
     >
       <CardFilter
@@ -586,9 +599,21 @@ function drop(event: DragEvent, index: number) {
         :options="cardFilterOptions.creator"
         single
       />
+      <AbilityFilter
+        id="deck-filter-abilities"
+        v-model="abilities"
+        v-model:mode="abilityMode"
+        :cards="cards"
+        :result-count="candidates.length"
+        @show-results="showResults"
+      />
     </CollapsibleFilters>
     <div class="deck-candidates-toolbar">
-      <h3 class="deck-candidates-heading">
+      <h3
+        id="deck-filter-results"
+        class="deck-candidates-heading filter-results-anchor"
+        tabindex="-1"
+      >
         カード一覧 <small>{{ candidates.length }}枚</small>
       </h3>
       <div
