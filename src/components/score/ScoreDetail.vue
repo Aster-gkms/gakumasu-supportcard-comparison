@@ -355,16 +355,16 @@ const sections = computed(() => {
                   timing="このカードのサポートイベント発生時"
                 />
                 <div class="event-equation">
-                  <span class="event-equation-term">
+                  <div class="event-equation-term">
                     <span class="event-equation-label">元の値</span>
                     <strong class="event-equation-value">{{ entry.value }}</strong>
-                  </span>
-                  <span
+                  </div>
+                  <div
                     v-if="entry.bonusPercent"
                     class="event-equation-part"
                   >
                     <span class="event-equation-operator">＋</span>
-                    <span class="event-equation-term event-equation-bonus">
+                    <div class="event-equation-term event-equation-bonus">
                       <div class="event-equation-label">
                         <EffectTooltip
                           :label="`${entry.bonusAbilityIndex !== undefined ? `効果 ${entry.bonusAbilityIndex + 1}・` : ''}${entry.bonusPercent}%増加`"
@@ -398,18 +398,18 @@ const sections = computed(() => {
                       <strong class="event-equation-value">{{
                         entry.appliedValue - entry.value
                       }}</strong>
-                    </span>
-                  </span>
-                  <span class="event-equation-part">
+                    </div>
+                  </div>
+                  <div class="event-equation-part">
                     <span class="event-equation-operator">＝</span>
-                    <span class="event-equation-term event-equation-result">
+                    <div class="event-equation-term event-equation-result">
                       <span class="event-equation-label">補正後</span>
                       <strong class="event-equation-value"
                         >{{ entry.appliedValue
                         }}<small v-if="entry.total === entry.appliedValue">点</small></strong
                       >
-                    </span>
-                  </span>
+                    </div>
+                  </div>
                 </div>
                 <p
                   v-if="eventHasRounding(entry)"

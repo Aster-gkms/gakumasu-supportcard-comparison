@@ -41,7 +41,7 @@ defineProps<{
     />
     <div class="calculation-body">
       <div class="calculation-equation">
-        <span
+        <div
           v-for="(term, index) in terms"
           :key="index"
           class="calculation-part"
@@ -51,7 +51,7 @@ defineProps<{
             class="calculation-operator"
             >{{ term.operator }}</span
           >
-          <span
+          <div
             class="calculation-term"
             :class="{
               'calculation-result': term.result,
@@ -96,8 +96,8 @@ defineProps<{
                   : term.value
               }}<small v-if="term.unit">{{ term.unit }}</small></strong
             >
-          </span>
-        </span>
+          </div>
+        </div>
       </div>
     </div>
     <p

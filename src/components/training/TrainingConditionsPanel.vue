@@ -19,6 +19,7 @@ import {
   type SpLessonDays,
 } from '../../scoring/conditions/conditions'
 import { typeLabels } from '../../data/cards'
+import { consultationRefreshMultiplier } from '../../scoring/scoringCounts'
 import {
   parameterBonusLessonRewards,
   parameterBonusBase,
@@ -772,7 +773,7 @@ onBeforeUnmount(() => {
                 <p class="conditions-help">
                   {{
                     action === 'consultation'
-                      ? '相談1回あたり（リフレッシュ時は各操作数が2倍）'
+                      ? `相談1回あたり（リフレッシュ時は各操作数が${consultationRefreshMultiplier}倍）`
                       : '特別指導1回あたり'
                   }}
                 </p>

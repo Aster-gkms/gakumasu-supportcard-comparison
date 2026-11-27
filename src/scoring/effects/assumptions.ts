@@ -1,6 +1,11 @@
 import type { SupportCard } from '../../data/cards.ts'
 import { planLabels } from '../../data/cards.ts'
-import { intervalCustomizationLimit, pItemAcquisitionLimit } from '../scoringConfig.ts'
+import {
+  intervalCustomizationLimit,
+  pItemAcquisitionLimit,
+  consultationDrinkAcquisitionLimit,
+  conditionalAcquisitionLimit,
+} from '../scoringConfig.ts'
 import { getSsrAcquisitionContext } from './ssrAcquisition.ts'
 import type { EvaluationPlan } from './ssrAcquisition.ts'
 import { getSupportEventOperations, supportEventAssumption } from './supportEvents.ts'
@@ -20,11 +25,22 @@ export function getScoreAssumptions(
   const notes: string[] = [conditionsSatisfiedAssumption, resourcesAvailableAssumption]
   if (
     card.effects.support_ability.some((effect) =>
+      ['consultation_drink', 'p_drink_acquire'].includes(String(effect.trigger)),
+    )
+  ) {
+    notes.push(
+      `相談で獲得するPドリンクは、リフレッシュ分を含め育成全体で最大${consultationDrinkAcquisitionLimit}個まで数えます`,
+    )
+  }
+  if (
+    card.effects.support_ability.some((effect) =>
       Number.isFinite(acquisitionActivationLimit(String(effect.trigger))),
     ) ||
     card.effects.produce_item?.some((effect) => effect.trigger.kind === 'keyword_card_acquire')
   ) {
-    notes.push('条件付きのスキルカード獲得時効果は、条件ごとに育成全体で最大16枚まで数えます')
+    notes.push(
+      `条件付きのスキルカード獲得時効果は、条件ごとに育成全体で最大${conditionalAcquisitionLimit}枚まで数えます`,
+    )
   }
   if (card.tag === 'skill') {
     notes.push('サポートイベントによるスキルカードは基本的に強化済みを1枚獲得する前提です')

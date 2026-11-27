@@ -1,4 +1,203 @@
 support_cards:
+  - id: SP_SSR_0119
+    name: 足を引っ張るなよ
+
+    produce_item_name: 協力シューティング
+
+    produce_item_detail:
+      description: SSR・メモリ化不可
+
+    rarity: SSR
+    type: da
+    plan: anomaly
+    tag: produce_item
+
+    effects:
+      produce_item:
+        - name: 協力シューティング
+          trigger:
+            kind: consult_selection
+          condition:
+            kind: param_gte
+            type: da
+            threshold: 400
+          max_count: 2
+          count_scope: per_produce
+          actions:
+            - kind: status_add
+              type: da
+              value: 20
+
+            - kind: hp_recovery
+              value: 3
+
+      support_event:
+        - template: プロデュースアイテム
+          trigger: support_event
+          value_type: produce_item_grant
+
+        - template: ダンス上昇+{value}
+          trigger: equip
+          type: da
+          values: [ 20, 20, 20, 20, 20 ]
+          value_type: status_add
+          unlock_level: 20
+
+        - template: ランダムなスキルカードを強化
+          trigger: support_event
+          value_type: skill_enhance
+          selection: random
+          target: skill_card
+          unlock_level: 40
+
+      support_ability:
+        - template: 初期ダンス上昇+{value}
+          value_type: status_add
+          trigger: produce_start
+          type: da
+          values: [ 52, 55, 59, 62, 65 ]
+
+        - template: ダンスSPレッスン発生率+{value}%
+          value_type: sp_rate
+          trigger: equip
+          type: da
+          values: [ 14, 14, 21, 21, 21 ]
+          unit: "%"
+
+        - template: このサポートカードのスキルカードサポート発生率を{value}%増加
+          value_type: support_rate_bonus
+          trigger: equip
+          values: [ 66.1, 74.6, 83.1, 91.5, 100 ]
+          unit: "%"
+
+        - template: スキルカード獲得時、所持している温存効果のスキルカードが8枚以上の場合、ダンス上昇+{value}（プロデュース中4回）
+          value_type: status_add
+          trigger: skill_acquire
+          type: da
+          values: [ 12, 12, 12, 16, 16 ]
+          max_count: 4
+          condition: 所持している温存効果のスキルカード>=8
+
+        - template: 活動支給・差し入れ選択時、ダンス上昇+{value}
+          value_type: status_add
+          trigger: activity_supply
+          type: da
+          values: [ 9, 9, 9, 9, 12 ]
+
+        - template: このサポートカードのイベントによるパラメータ上昇を{value}%増加
+          value_type: event_param_boost
+          trigger: equip
+          type: da
+          values: [ 50, 75, 75, 75, 100 ]
+          unit: "%"
+
+  - id: SP_SSR_0118
+    name: 次はボクの番や！
+
+    skill_card_name: 勝たしてもらうで！
+
+    skill_card_detail:
+      description: SSR・メンタル・レッスン中1回・重複不可（強化後のみ確認）
+      variants:
+        - label: 強化後
+          cost: 元気消費3
+          text: |-
+            集中+5
+            以降3回まで、メンタルスキルカードを2回使用するごとに、集中強化10%（2ターン）
+      source_data:
+        name: 勝たしてもらうで！
+        rarity: ssr
+        type: mental
+        lesson_limit: 1
+        no_duplicate: true
+        effects:
+          - level: plus
+            cost_type: vitality
+            cost_value: 3
+            effect:
+              groups:
+                - action:
+                    key: keyword_up
+                    keyword: concentration
+                    value: 5
+                - trigger:
+                    key: mental_card_use_count
+                    count: 2
+                  limit:
+                    key: times
+                    count: 3
+                  action:
+                    key: keyword_enhance_boost
+                    keyword: concentration
+                    value: 10
+                    turns: 2
+
+    rarity: SSR
+    type: vo
+    plan: sense
+    tag: skill
+
+    effects:
+      support_event:
+        - template: スキルカード
+          trigger: support_event
+          value_type: skill_card_grant
+
+        - template: ボーカル上昇+{value}
+          trigger: equip
+          type: vo
+          values: [ 20, 20, 20, 20, 20 ]
+          value_type: status_add
+          unlock_level: 20
+
+        - template: ランダムなスキルカードを強化
+          trigger: support_event
+          value_type: skill_enhance
+          selection: random
+          target: skill_card
+          unlock_level: 40
+
+      support_ability:
+        - template: ボーカルパラメータボーナス+{value}%
+          value_type: param_bonus
+          trigger: equip
+          type: vo
+          values: [ 6.5, 7, 7.5, 8, 8.5 ]
+          unit: "%"
+
+        - template: スキルカード強化時、所持しているトラブルカードが1枚以上の場合、ボーカル上昇+{value}（プロデュース中3回）
+          value_type: status_add
+          trigger: skill_enhance
+          type: vo
+          values: [ 21, 21, 28, 28, 28 ]
+          max_count: 3
+          condition: 所持しているトラブルカード>=1
+
+        - template: このサポートカードのスキルカードサポート発生率を{value}%増加
+          value_type: support_rate_bonus
+          trigger: equip
+          values: [ 66.1, 74.6, 83.1, 91.5, 100 ]
+          unit: "%"
+
+        - template: ボーカルSPレッスン終了時、ボーカル上昇+{value}
+          value_type: status_add
+          trigger: vo_sp_end
+          type: vo
+          values: [ 13, 13, 13, 17, 17 ]
+
+        - template: 活動支給・差し入れ選択時、ボーカル上昇+{value}
+          value_type: status_add
+          trigger: activity_supply
+          type: vo
+          values: [ 12, 12, 12, 12, 17 ]
+
+        - template: このサポートカードのイベントによるパラメータ上昇を{value}%増加
+          value_type: event_param_boost
+          trigger: equip
+          type: vo
+          values: [ 50, 75, 75, 75, 100 ]
+          unit: "%"
+
   - id: SP_SSR_0117
     name: お嬢様、失礼いたします
 

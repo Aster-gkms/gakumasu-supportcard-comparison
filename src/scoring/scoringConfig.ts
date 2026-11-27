@@ -1,6 +1,13 @@
 // HIF共通の計算定義。日付は選抜初日を1とする通算日。
 // 入力の検証はconditions/、日程探索はhifSchedule.tsを参照。
-// 相談の交換数はconsultationOperations、日別の対応はconsultationScheduleを参照。
+// 報酬個数・操作数・獲得上限の手動編集はscoringCounts.ts。ここでは日程と日別対応を管理する。
+import {
+  consultationOperations,
+  selectionExamDeletionCount,
+  type ConsultationOperations,
+} from './scoringCounts.ts'
+// 既存の参照先でも同じ定義を使用できるよう、互換の入口として再公開する。
+export * from './scoringCounts.ts'
 
 export type LessonKind = 'normal' | 'sp'
 
@@ -15,14 +22,11 @@ export const classAcquisitionDays: readonly number[] = [3, 6]
 export const selectionExamDays: readonly number[] = [7, 13, 20]
 export const finalRoundDays = [27, 29] as const
 export const examDays = [...selectionExamDays, ...finalRoundDays] as const
-// 選抜試験1・2の終了後に、それぞれ基本スキルカード2枚を削除する。
+// 各対象試験の終了後に削除する基本カード枚数はscoringCounts.tsを参照。
 export const selectionExamDeletions = [
-  { day: selectionExamDays[0]!, examNumber: 1, count: 2 },
-  { day: selectionExamDays[1]!, examNumber: 2, count: 2 },
+  { day: selectionExamDays[0]!, examNumber: 1, count: selectionExamDeletionCount },
+  { day: selectionExamDays[1]!, examNumber: 2, count: selectionExamDeletionCount },
 ] as const
-// 基本カードは合計7枚、アクティブ/メンタルはそれぞれ2～5枚。
-// 初期内訳も含め対象カードに最も有利な選択をする。
-export const basicSkillCards = { total: 7, minPerType: 2, maxPerType: 5 } as const
 export const intervalDay = 28
 
 export type FreeAction = 'outing_end' | 'consultation' | 'activity_supply' | 'special_training'
@@ -39,33 +43,7 @@ export const freeActionSlots: readonly { day: number; actions: readonly FreeActi
 ]
 // 行動名: consultation=相談、activity_supply=差し入れ、outing_end=おでかけ、
 // special_training=特別指導。同じ行の選択肢は同日には1つだけ実行する。
-// 2. 各行動1回あたりの報酬・操作数。
-export const supplyRewards = {
-  skillCards: 1, // 差し入れで獲得するスキルカード枚数
-  pDrinks: 1, // 同時に獲得するPドリンク個数
-  minimumDrinkRarity: 'SR', // ドリンクの最低レアリティ
-  skillEnhancement: 'random', // スキルカードの強化済み/未強化はランダム
-} as const
-export const outingRewards = {
-  regularSkillCards: 2, // おでかけで獲得する通常スキルカード枚数
-  sleepinessCards: 1, // 眠気ありの報酬を選んだ場合の追加枚数
-  minimumSkillCards: 1, // 報酬の仕様上の最低枚数（現行の最大点探索は通常2枚を使用）
-  pDrinks: 1, // 獲得するPドリンク個数
-} as const
-export const classRewards = { skillCards: 1, changes: 1, sleepinessCards: 1 } as const
-
-// 3. 相談の事前前提。交換数を変える場合はここを編集する。
-// 各候補日に相談を選ぶかどうか、リフレッシュをいつ使うかは探索で選択する。
-export type ConsultationOperations = Record<
-  'skill_enhance' | 'skill_delete' | 'p_drink_acquire' | 'skill_acquire',
-  number
->
-export const consultationOperations = {
-  skill_enhance: 1, // 通常の相談1回で強化する枚数
-  skill_delete: 1, // 通常の相談1回で削除する枚数
-  p_drink_acquire: 4, // 通常の相談1回で交換するPドリンク個数
-  skill_acquire: 4, // 通常の相談1回で交換するスキルカード枚数
-} as const
+// 各相談候補日の標準操作数はscoringCounts.tsの共通設定を使う。
 // 各相談候補日の事前前提。相談を選ばなかった日の操作は加算しない。
 export const consultationSchedule: readonly { day: number; operations: ConsultationOperations }[] =
   freeActionSlots
@@ -78,19 +56,6 @@ export function consultationOperationsForDay(day: number): ConsultationOperation
   }
   return assumption.operations
 }
-export const consultationRefreshLimit = 1 // 育成全体でリフレッシュを使える回数
-export const consultationRefreshMultiplier = 2 // 使用した相談だけ、上記の操作数をこの倍率にする
-
-// 4. カスタマイズと育成全体の上限・評価前提。
-export const specialTrainingCardLimit = 2
-export const customizationsPerTrainingCard = 3
-export const specialTrainingCustomizationLimit =
-  specialTrainingCardLimit * customizationsPerTrainingCard
-
-export const intervalCustomizationLimit = 6 // インターバルのカスタマイズ回数
-export const pItemAcquisitionLimit = 6 // 育成全体のPアイテム獲得機会
-export const conditionalAcquisitionLimit = 16 // 種別・キーワード・レアリティ条件付き獲得の上限
-export const ssrAcquisitionLimits = { sense: 15, logic: 16, anomaly: 15 } as const
 // パラボ基準値の内訳。
 // 日付は通算日。現行は全SP・自由配分を対象タイプへ寄せた基準を使う。
 export const parameterBonusLessonRewards = [
