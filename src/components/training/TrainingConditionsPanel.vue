@@ -19,6 +19,7 @@ import {
   type SpLessonDays,
 } from '../../scoring/conditions/conditions'
 import { typeLabels } from '../../data/cards'
+import { consultationRefreshMultiplier } from '../../scoring/scoringCounts'
 import {
   parameterBonusLessonRewards,
   parameterBonusBase,
@@ -54,6 +55,10 @@ const actions = defineModel<ActionCounts>('actions', { required: true })
 const exams = defineModel<ExamRatios>('exams', { required: true })
 const operations = defineModel<OperationSettings>('operations', { required: true })
 const specifiedOperations = computed(() => Object.keys(operations.value).length)
+const operationFieldsByGroup = {
+  consultation: operationSettingFields.filter((field) => field.group === 'consultation'),
+  special_training: operationSettingFields.filter((field) => field.group === 'special_training'),
+}
 function setOperationSetting(key: OperationSettingKey, requestedValue: number) {
   if (!Number.isFinite(requestedValue)) {
     return
@@ -772,12 +777,12 @@ onBeforeUnmount(() => {
                 <p class="conditions-help">
                   {{
                     action === 'consultation'
-                      ? '相談1回あたり（リフレッシュ時は各操作数が2倍）'
+                      ? `相談1回あたり（リフレッシュ時は各操作数が${consultationRefreshMultiplier}倍）`
                       : '特別指導1回あたり'
                   }}
                 </p>
                 <div
-                  v-for="field in operationSettingFields.filter((field) => field.group === action)"
+                  v-for="field in operationFieldsByGroup[action]"
                   :key="field.key"
                   class="operation-setting-row"
                 >

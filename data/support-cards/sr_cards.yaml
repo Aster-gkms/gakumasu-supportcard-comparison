@@ -1,4 +1,86 @@
 support_cards:
+  - id: SP_SR_0085
+    name: ヒーロー参上
+
+    produce_item_name: 変身ヒーローズ
+
+    produce_item_detail:
+      description: SR・メモリ化不可
+
+    rarity: SR
+    type: vo
+    plan: anomaly
+    tag: produce_item
+
+    effects:
+      produce_item:
+        - name: 変身ヒーローズ
+          trigger:
+            kind: keyword_card_acquire
+            keyword: reserve
+          max_count: 2
+          count_scope: per_produce
+          actions:
+            - kind: point_add
+              value: 20
+
+            - kind: status_add
+              type: vo
+              value: 5
+
+      support_event:
+        - template: プロデュースアイテム
+          trigger: support_event
+          value_type: produce_item_grant
+
+        - template: ボーカル上昇+{value}
+          trigger: equip
+          type: vo
+          values: [ 15, 15, 15, 15, 15 ]
+          value_type: status_add
+          unlock_level: 20
+
+      support_ability:
+        - template: ボーカルパラメータボーナス+{value}%
+          value_type: param_bonus
+          trigger: equip
+          type: vo
+          values: [ 4.4, 4.9, 5.4, 5.9, 6.4 ]
+          unit: "%"
+
+        - template: 授業・営業終了時、ボーカル上昇+{value}
+          value_type: status_add
+          trigger: class_end
+          type: vo
+          values: [ 3, 5, 5, 5, 5 ]
+
+        - template: このサポートカードのスキルカードサポート発生率を{value}%増加
+          value_type: support_rate_bonus
+          trigger: equip
+          values: [ 59.2, 69.4, 79.6, 89.8, 100 ]
+          unit: "%"
+
+        - template: ボーカルSPレッスン終了時、ボーカル上昇+{value}
+          value_type: status_add
+          trigger: vo_sp_end
+          type: vo
+          values: [ 7, 7, 7, 7, 13 ]
+
+        - template: スキルカード獲得時、所持している温存効果のスキルカードが8枚以上の場合、ボーカル上昇+{value}（プロデュース中4回）
+          value_type: status_add
+          trigger: skill_acquire
+          type: vo
+          values: [ 8, 8, 8, 16, 16 ]
+          max_count: 4
+          condition: 所持している温存効果のスキルカード>=8
+
+        - template: このサポートカードのイベントによるパラメータ上昇を{value}%増加
+          value_type: event_param_boost
+          trigger: equip
+          type: vo
+          values: [ 50, 50, 75, 75, 100 ]
+          unit: "%"
+
   - id: SP_SR_0084
     name: どたばた、おそうじ
 

@@ -39,6 +39,7 @@ import {
   pItemAcquisitionLimit,
   consultationRefreshLimit,
   consultationRefreshMultiplier,
+  consultationDrinkAcquisitionLimit,
 } from './scoringConfig.ts'
 import {
   consultationOperationsForSettings,
@@ -429,6 +430,10 @@ export function calculateHifScheduleSubtotal(
       abilityIndex: -1,
     })),
   ]
+  const trackConsultationDrinks = effects.some((effect) =>
+    ['consultation_drink', 'p_drink_acquire'].includes(effect.trigger),
+  )
+  const consultationDrinkRadix = trackConsultationDrinks ? consultationDrinkAcquisitionLimit + 1 : 1
   type History = {
     previous?: History
     source: ActivationSource
@@ -451,6 +456,7 @@ export function calculateHifScheduleSubtotal(
     path: ChoicePath | undefined
     canRest: boolean
     refreshesUsed: number
+    consultationDrinks: number
     eventChoices: SupportEventChoice[]
     readonly copyCounts: readonly number[]
     itemCopyChoices: ItemCopyChoice[]
@@ -530,6 +536,7 @@ export function calculateHifScheduleSubtotal(
   const transitionRadices = [...effectRadices, ...itemRadices, ssrRadix]
   const stateRadices = [
     ...transitionRadices,
+    consultationDrinkRadix,
     2,
     consultationRefreshLimit + 1,
     ...constrainedActions.map(() => hifDayCount + 1),
@@ -586,10 +593,12 @@ export function calculateHifScheduleSubtotal(
     actionCounts = state.actionCounts,
   ): string | number => {
     if (!numericStates) {
-      return `${canRest ? 1 : 0}:${refreshesUsed}:${transitionStateKey(state)}${requestedActions ? `:actions:${constrainedActions.map((key) => actionCounts?.[key] ?? 0).join(',')}` : ''}${conditions ? `:lessons:${types.map((type) => Math.min(lessonCounts![type], conditions.spLessons[type])).join(',')}:${parameterTypes.map((type) => lessonCounts![type]).join(',')}` : ''}`
+      return `${canRest ? 1 : 0}:${refreshesUsed}:${transitionStateKey(state)}:drinks:${state.consultationDrinks}${requestedActions ? `:actions:${constrainedActions.map((key) => actionCounts?.[key] ?? 0).join(',')}` : ''}${conditions ? `:lessons:${types.map((type) => Math.min(lessonCounts![type], conditions.spLessons[type])).join(',')}:${parameterTypes.map((type) => lessonCounts![type]).join(',')}` : ''}`
     }
     let key =
-      (Number(transitionStateKey(state)) * 2 + (canRest ? 1 : 0)) * (consultationRefreshLimit + 1) +
+      ((Number(transitionStateKey(state)) * consultationDrinkRadix + state.consultationDrinks) * 2 +
+        (canRest ? 1 : 0)) *
+        (consultationRefreshLimit + 1) +
       refreshesUsed
     for (const action of constrainedActions) {
       key = key * (hifDayCount + 1) + (actionCounts?.[action] ?? 0)
@@ -708,6 +717,7 @@ export function calculateHifScheduleSubtotal(
   // 候補の比較にはSSR対象外の枚数も必要。対象トリガーの配列は1回だけ作る。
   const actionFiringTriggers = [
     ...relevantFiring,
+    ...(trackConsultationDrinks ? ['consultation_drink'] : []),
     ...(ssrContext ? ['ssr_ineligible_acquire'] : []),
   ]
   const applyUncachedFiring = (state: State, firing: Record<string, number>): State[] => {
@@ -944,6 +954,7 @@ export function calculateHifScheduleSubtotal(
         counts: effects.map(() => 0),
         canRest: false,
         refreshesUsed: 0,
+        consultationDrinks: 0,
         eventChoices: [],
         copyCounts: (card.effects.produce_item ?? []).map(() => 0),
         itemCopyChoices: [],
@@ -1042,7 +1053,21 @@ export function calculateHifScheduleSubtotal(
       return prepared
     }
     for (const state of states.values()) {
-      for (const { action, firing } of preparedActions(state)) {
+      for (const { action, firing: offeredFiring } of preparedActions(state)) {
+        // 相談由来の獲得だけを共有上限へ含め、差し入れ・おでかけ・Pアイテムは別に数える。
+        const offeredDrinks = offeredFiring.consultation_drink ?? 0
+        const acquiredDrinks = trackConsultationDrinks
+          ? Math.min(offeredDrinks, consultationDrinkAcquisitionLimit - state.consultationDrinks)
+          : 0
+        const firing =
+          trackConsultationDrinks && acquiredDrinks < offeredDrinks
+            ? {
+                ...offeredFiring,
+                consultation_drink: acquiredDrinks,
+                p_drink_acquire:
+                  (offeredFiring.p_drink_acquire ?? 0) - offeredDrinks + acquiredDrinks,
+              }
+            : offeredFiring
         let lessonCounts = state.lessonCounts
         if (lessonCounts && action.kind === 'lesson') {
           lessonCounts = { ...lessonCounts, [action.main!]: lessonCounts[action.main!] + 1 }
@@ -1080,7 +1105,10 @@ export function calculateHifScheduleSubtotal(
               ),
             )
           : firedStates
-        for (const activated of activatedStates) {
+        for (const after of activatedStates) {
+          const activated = acquiredDrinks
+            ? { ...after, consultationDrinks: state.consultationDrinks + acquiredDrinks }
+            : after
           const { total, counts } = activated
           const canRest = actionAllowsRest(action.kind)
           const refreshesUsed = state.refreshesUsed + (action.consultationRefresh ? 1 : 0)

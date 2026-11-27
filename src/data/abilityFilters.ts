@@ -53,7 +53,7 @@ function conditionLabel(condition: unknown): string {
   if (text === 'チェンジ対象が基本スキルカード') {
     return '名前に「基本」を含むスキルカードが対象'
   }
-  return text.replace('>=8', 'を8枚以上所持').replace('所持している', '')
+  return text.replace(/>=(\d+)$/u, 'を$1枚以上所持').replace('所持している', '')
 }
 
 function manualOrder(

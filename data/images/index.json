@@ -84,6 +84,15 @@
         "path": "card-details/r/SP_R_0001.webp"
       }
     },
+    "SP_SR_0085": {
+      "name": "ヒーロー参上",
+      "card": {
+        "path": "card-details/sr/SP_SR_0085.webp"
+      },
+      "produce_item": {
+        "path": "produce-items/sr/SP_SR_0085.png"
+      }
+    },
     "SP_SR_0084": {
       "name": "どたばた、おそうじ",
       "card": {
@@ -922,6 +931,24 @@
       "skill_card": {
         "name": "全力サポート",
         "path": "skill-cards/sr/SP_SR_0001.png"
+      }
+    },
+    "SP_SSR_0119": {
+      "name": "足を引っ張るなよ",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0119.webp"
+      },
+      "produce_item": {
+        "path": "produce-items/ssr/SP_SSR_0119.png"
+      }
+    },
+    "SP_SSR_0118": {
+      "name": "次はボクの番や！",
+      "card": {
+        "path": "card-details/ssr/SP_SSR_0118.webp"
+      },
+      "skill_card": {
+        "path": "skill-cards/ssr/SP_SSR_0118.png"
       }
     },
     "SP_SSR_0117": {

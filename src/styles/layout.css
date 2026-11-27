@@ -175,20 +175,14 @@ td {
     white-space: normal;
     line-height: 1.5;
   }
-  .table-scroll
-    th:is(
-      [data-column='rarity'],
-      [data-column='level'],
-      [data-column='type'],
-      [data-column='plan']
-    ),
-  .table-scroll
-    td:is(
-      [data-column='rarity'],
-      [data-column='level'],
-      [data-column='type'],
-      [data-column='plan']
-    ) {
+  .table-scroll th[data-column='rarity'],
+  .table-scroll th[data-column='level'],
+  .table-scroll th[data-column='type'],
+  .table-scroll th[data-column='plan'],
+  .table-scroll td[data-column='rarity'],
+  .table-scroll td[data-column='level'],
+  .table-scroll td[data-column='type'],
+  .table-scroll td[data-column='plan'] {
     text-align: center;
   }
   .table-scroll td[data-column='tag'] {
