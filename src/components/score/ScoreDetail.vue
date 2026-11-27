@@ -433,7 +433,10 @@ const sections = computed(() => {
                 v-for="(calculation, index) in section.calculations"
                 :key="`${score?.cardId}:${formulaOpen}:${index}`"
               >
-                <ScoreCalculation v-bind="calculation" />
+                <ScoreCalculation
+                  v-bind="calculation"
+                  :terms="calculation.terms"
+                />
               </li>
             </ul>
             <p v-else>加算なし</p>
